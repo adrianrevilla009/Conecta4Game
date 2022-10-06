@@ -1,5 +1,8 @@
+import main.java.connect4game.domain.Connect4Game;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Connect4Game connect4Game = new Connect4Game();
+        connect4Game.playGame();
     }
 }
