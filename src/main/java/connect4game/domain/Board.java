@@ -10,9 +10,9 @@ public class Board {
             for (int j = 0; j < this.cells[i].length; j++) {
                 Cell cell = new Cell();
                 if (i % 3 == 0) {
-                    cell.setColor("X");
+                    cell.setColor(Color.getColor(Color.BLUE));
                 } else {
-                    cell.setColor("O");
+                    cell.setColor(Color.getColor(Color.GREEN));
                 }
                 this.cells[i][j] = cell;
             }

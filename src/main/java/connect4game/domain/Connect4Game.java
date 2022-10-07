@@ -34,11 +34,15 @@ public class Connect4Game {
             this.turnList.add(turn);
             turn.play();
             this.board.write();
-            if (lastTurnPlayer.getNumber() == this.player1.getNumber()) {
-                actualTurnPlayer = this.player2;
-            } else {
-                actualTurnPlayer = this.player1;
-            }
+            actualTurnPlayer = this.whoIsNext(lastTurnPlayer);
+        }
+    }
+
+    private Player whoIsNext(Player lastTurnPlayer) {
+        if (lastTurnPlayer.getNumber() == this.player1.getNumber()) {
+            return this.player2;
+        } else {
+            return this.player1;
         }
     }
 

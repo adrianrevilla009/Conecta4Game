@@ -4,7 +4,7 @@ Connect4Game *-down-> "2" Player
 Connect4Game *-down-> "4+3..*" Turn
 Connect4Game *-down-> Board
 Connect4Game *-down-> InitialDraw
-Turn *-right-> "2" Player
+Turn *-right-> Player
 Player *-down-> Color
 Chip *-down-> Color
 Player -right-> Board

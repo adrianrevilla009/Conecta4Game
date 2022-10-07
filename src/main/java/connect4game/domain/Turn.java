@@ -1,5 +1,8 @@
 package main.java.connect4game.domain;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Turn {
     private Player player;
     private Board board;
