@@ -13,8 +13,8 @@ public class Connect4Game {
     public Connect4Game() {
         this.board = new Board();
         this.turnList = new ArrayList<>();
-        this.player1 = new Player("Pepe", 1);
-        this.player2 = new Player("Juan", 2);
+        this.player1 = new Player("Pepe", Color.GREEN);
+        this.player2 = new Player("Juan", Color.BLUE);
         this.initialDraw = new InitialDraw(player1, player2);
     }
 
@@ -39,7 +39,7 @@ public class Connect4Game {
     }
 
     private Player whoIsNext(Player lastTurnPlayer) {
-        if (lastTurnPlayer.getNumber() == this.player1.getNumber()) {
+        if (lastTurnPlayer.getColor() == this.player1.getColor()) {
             return this.player2;
         } else {
             return this.player1;

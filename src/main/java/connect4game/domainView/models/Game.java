@@ -49,10 +49,15 @@ public class Game {
                 this.turnList.add(turn);
             }
         }
+        this.finishGame();
     }
 
     public Player whoStartsGame() {
         List<Player> playerList = Arrays.asList(player1, player2);
         return playerList.get((int) ((Math.random() * (2 - 1)) + 1));
+    }
+
+    public void finishGame() {
+        this.board.finishGame();
     }
 }

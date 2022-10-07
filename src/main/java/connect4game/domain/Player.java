@@ -2,21 +2,21 @@ package main.java.connect4game.domain;
 
 public class Player {
     private String name;
-    private int number;
+    private Color color;
 
     private Board board;
 
-    public Player(String name, int number) {
+    public Player(String name, Color color) {
         this.name = name;
-        this.number = number;
+        this.color = color;
     }
 
     public void move(Movement movement) {
         System.out.println("moving");
     }
 
-    public int getNumber() {
-        return number;
+    public Color getColor() {
+        return color;
     }
 
     public void useBoard(Board board) {

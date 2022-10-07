@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Turn {
     private Player player;
-    private Board board;
     private Movement movement;
 
     public Turn(Player player) {

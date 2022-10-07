@@ -9,6 +9,7 @@ public class Board {
         for (int i = 0; i < this.cells.length; i++) {
             for (int j = 0; j < this.cells[i].length; j++) {
                 Cell cell = new Cell();
+                // test values
                 if (i % 3 == 0) {
                     cell.setColor(Color.getColor(Color.BLUE));
                 } else {
@@ -31,10 +32,6 @@ public class Board {
             }
             System.out.println();
         }
-    }
-
-    public void makeMovement() {
-        System.out.println("Making a movement");
     }
 
 }

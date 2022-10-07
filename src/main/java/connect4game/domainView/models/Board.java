@@ -2,6 +2,7 @@ package main.java.connect4game.domainView.models;
 
 import main.java.connect4game.domain.Cell;
 import main.java.connect4game.domainView.Types.Color;
+import main.java.connect4game.domainView.views.BoardView;
 
 public class Board {
     private Cell[][] cells;
@@ -28,5 +29,9 @@ public class Board {
 
     public Cell[][] getCells() {
         return cells;
+    }
+
+    public void finishGame() {
+        new BoardView().write(this);
     }
 }
