@@ -1,33 +1,60 @@
 package main.java.connect4game.domain;
 
 public class Player {
-    private String name;
     private Color color;
-
     private Board board;
+    private int putTokens;
 
-    public Player(String name, Color color) {
-        this.name = name;
+    Player(Color color, Board board) {
+        assert !color.isNull();
+        assert board != null;
+
         this.color = color;
-    }
-
-    public void move(Movement movement) {
-        System.out.println("moving");
-    }
-
-    public Color getColor() {
-        return color;
-    }
-
-    public void useBoard(Board board) {
         this.board = board;
+        this.putTokens = 0;
     }
 
-    public Board getBoard() {
-        return board;
+    void play() {
+        if (this.putTokens < Cell.getNumberCells()) {
+            this.putToken();
+        }
     }
 
-    public String getName() {
-        return name;
+    private void putToken() {
+        Cell cell;
+        Error error;
+        do {
+            cell = this.getCell(Message.ENTER_COORDINATE_TO_PUT);
+            error = this.getTokenError(cell);
+        } while (!error.isNull());
+        this.board.putToken(cell, this.color);
+        this.putTokens++;
+    }
+
+    Cell getCell(Message message){
+        assert message != null;
+
+        Cell cell = new Cell();
+        cell.read(message.toString());
+        return cell;
+    }
+
+    private Error getTokenError(Cell cell) {
+        assert cell != null;
+
+        Error error = Error.NULL;
+        if (!this.board.isEmpty(cell)) {
+            error = Error.NOT_EMPTY;
+        }
+        error.writeln();
+        return error;
+    }
+
+    void writeWinner() {
+        Message.PLAYER_WIN.writeln(this.color.name());
+    }
+
+    Color getColor() {
+        return this.color;
     }
 }
