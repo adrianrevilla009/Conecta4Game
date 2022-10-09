@@ -1,4 +1,4 @@
-package main.java.connect4game.domain;
+package main.java.connect4game.domainModel.domain;
 
 public class Player {
     private Color color;

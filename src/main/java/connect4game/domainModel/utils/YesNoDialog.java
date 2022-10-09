@@ -1,4 +1,4 @@
-package main.java.connect4game.utils;
+package main.java.connect4game.domainModel.utils;
 
 public class YesNoDialog {
     private static final char AFFIRMATIVE = 'y';

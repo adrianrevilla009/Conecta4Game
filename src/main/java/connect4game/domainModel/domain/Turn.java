@@ -1,7 +1,6 @@
-package main.java.connect4game.domain;
+package main.java.connect4game.domainModel.domain;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Turn {

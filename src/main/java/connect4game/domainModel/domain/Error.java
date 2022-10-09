@@ -1,6 +1,6 @@
-package main.java.connect4game.domain;
+package main.java.connect4game.domainModel.domain;
 
-import main.java.connect4game.utils.Console;
+import main.java.connect4game.domainModel.utils.Console;
 
 public enum Error {
     NOT_EMPTY("The square is not empty"),

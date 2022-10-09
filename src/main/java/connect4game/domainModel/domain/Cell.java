@@ -1,6 +1,6 @@
-package main.java.connect4game.domain;
+package main.java.connect4game.domainModel.domain;
 
-import main.java.connect4game.utils.Console;
+import main.java.connect4game.domainModel.utils.Console;
 
 public class Cell {
     private int row;
@@ -57,10 +57,7 @@ public class Cell {
     }
 
     public boolean isValid() {
-        if (this.row < Cell.ROWS && this.row >= 0 && this.column >= 0 && this.column < Cell.COLUMNS) {
-            return true;
-        }
-        return false;
+        return this.row < Cell.ROWS && this.row >= 0 && this.column >= 0 && this.column < Cell.COLUMNS;
     }
     public String getErrorMessage() {
         return Error.WRONG_COORDINATES.getMessage();

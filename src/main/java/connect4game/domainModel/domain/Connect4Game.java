@@ -1,6 +1,6 @@
-package main.java.connect4game.domain;
+package main.java.connect4game.domainModel.domain;
 
-import main.java.connect4game.utils.YesNoDialog;
+import main.java.connect4game.domainModel.utils.YesNoDialog;
 
 public class Connect4Game {
     private Board board;
@@ -56,5 +56,4 @@ public class Connect4Game {
     public static void main(String[] args) {
         new Connect4Game().play();
     }
-
 }

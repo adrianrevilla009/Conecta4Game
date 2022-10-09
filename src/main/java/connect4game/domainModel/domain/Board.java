@@ -1,6 +1,6 @@
-package main.java.connect4game.domain;
+package main.java.connect4game.domainModel.domain;
 
-import main.java.connect4game.utils.Console;
+import main.java.connect4game.domainModel.utils.Console;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,7 +30,6 @@ public class Board {
     }
 
     private Color getColor(Cell cell) {
-        // assert !cell.isNull();
 
         for (Map.Entry<Color, List<Cell>> entry : cellMap.entrySet()) {
             for (Cell boardCell : entry.getValue()) {
@@ -118,12 +117,6 @@ public class Board {
         return total == Cell.getNumberCells();
     }
 
-    List<Cell> getCells(Color color) {
-        assert !color.isNull();
-
-        return cellMap.get(color);
-    }
-
     int getOccupiedCells() {
         int total = 0;
         for (Map.Entry<Color, List<Cell>> entry : cellMap.entrySet()) {
@@ -144,5 +137,4 @@ public class Board {
         }
         Message.HORIZONTAL_LINE.writeln();
     }
-
 }

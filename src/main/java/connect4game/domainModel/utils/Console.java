@@ -1,4 +1,4 @@
-package main.java.connect4game.utils;
+package main.java.connect4game.domainModel.utils;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

@@ -1,6 +1,6 @@
-package main.java.connect4game.domain;
+package main.java.connect4game.domainModel.domain;
 
-import main.java.connect4game.utils.Console;
+import main.java.connect4game.domainModel.utils.Console;
 
 import java.util.Arrays;
 import java.util.List;
@@ -31,5 +31,4 @@ public enum Color {
     static List<Color> getColors() {
         return Arrays.stream(Color.values()).toList();
     }
-
 }
