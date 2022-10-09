@@ -16,7 +16,7 @@ public class Cell {
     }
 
     public boolean isValid() {
-        return this.row < Cell.ROWS && this.row >= 0 && this.column >= 0 && this.column < Cell.COLUMNS;
+        return this.column >= 0 && this.column < Cell.COLUMNS;
     }
 
     public int getRow() {
@@ -29,5 +29,9 @@ public class Cell {
 
     public static int getNumberCells() {
         return ROWS * COLUMNS;
+    }
+
+    public void setRow(int row) {
+        this.row = row;
     }
 }

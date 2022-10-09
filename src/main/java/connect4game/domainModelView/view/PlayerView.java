@@ -25,13 +25,15 @@ public class PlayerView {
             cell = this.getCell(Message.ENTER_COORDINATE_TO_PUT);
             error = this.getPutTokenError(cell);
         } while (!error.isNull());
-        this.game.putToken(cell); // aqui no va el color?
+        this.game.putToken(cell);
     }
 
     Cell getCell(Message message) {
         assert message != null;
 
-        return (Cell) new CellView().read(message.toString());
+        Cell cell = new CellView().read(message.toString());
+        cell.setRow(this.game.getNextFreeRow(cell));
+        return cell;
     }
 
     private Error getPutTokenError(Cell cell) {

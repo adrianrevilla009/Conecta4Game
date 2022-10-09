@@ -28,6 +28,9 @@ public class Player {
         if (!this.board.isEmpty(cell)) {
             return Error.NOT_EMPTY;
         }
+        if (this.board.getNextFreeRow(cell) < 0) {
+            return Error.FULL_COLUMN;
+        }
         return Error.NULL;
     }
 

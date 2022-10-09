@@ -6,9 +6,8 @@ import main.java.connect4game.domainModelView.types.Error;
 
 public class CellView {
     public Cell createCell() {
-        int x = this.readRows();
         int y = this.readColumns();
-        return new Cell(x, y);
+        return new Cell(0, y);
     }
 
     public String getErrorMessage() {
@@ -28,11 +27,6 @@ public class CellView {
             }
         } while (error);
         return cell;
-    }
-
-    public Integer readRows() {
-        main.java.connect4game.domainModel.utils.Console console = main.java.connect4game.domainModel.utils.Console.getInstance();
-        return console.readInt("Rows: ") - 1;
     }
 
     public Integer readColumns() {

@@ -49,5 +49,9 @@ public class Game {
         return this.turn.getPutTokenError(cell);
     }
 
+    public int getNextFreeRow(Cell cell) {
+        return this.board.getNextFreeRow(cell);
+    }
+
 
 }
