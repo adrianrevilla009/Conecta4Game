@@ -5,6 +5,7 @@ import main.java.connect4game.domainModel.utils.Console;
 public enum Error {
     NOT_EMPTY("The square is not empty"),
     WRONG_COORDINATES("The coordinates are wrong"),
+    FULL_COLUMN("The column is already full, chose another one"),
     NULL;
 
     private String message;

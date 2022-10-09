@@ -137,4 +137,19 @@ public class Board {
         }
         Message.HORIZONTAL_LINE.writeln();
     }
+
+    int getNextFreeRow(Cell cell) {
+        int nextValue = Cell.ROWS;
+
+        for (Map.Entry<Color, List<Cell>> entry : cellMap.entrySet()) {
+            for (Cell cell1 : entry.getValue()) {
+                if (cell1.getColumn() ==cell.getColumn() && cell1.getRow() < nextValue) {
+                    nextValue = cell1.getRow();
+                }
+            }
+        }
+        nextValue -= 1;
+
+        return nextValue;
+    }
 }

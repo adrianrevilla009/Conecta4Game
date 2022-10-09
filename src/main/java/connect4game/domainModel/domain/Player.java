@@ -36,6 +36,7 @@ public class Player {
 
         Cell cell = new Cell();
         cell.read(message.toString());
+        cell.setRow(this.board.getNextFreeRow(cell));
         return cell;
     }
 
@@ -45,6 +46,9 @@ public class Player {
         Error error = Error.NULL;
         if (!this.board.isEmpty(cell)) {
             error = Error.NOT_EMPTY;
+        }
+        if (this.board.getNextFreeRow(cell) < 0) {
+            error = Error.FULL_COLUMN;
         }
         error.writeln();
         return error;

@@ -37,7 +37,6 @@ public class Cell {
         do {
             Console console = Console.getInstance();
             console.writeln(message);
-            this.row = cell.readRows();
             this.column = cell.readColumns();
             error = !this.isValid();
             if (error) {
@@ -46,20 +45,19 @@ public class Cell {
         } while (error);
     }
 
-    public Integer readRows() {
-        Console console = Console.getInstance();
-        return console.readInt("Rows: ") - 1;
-    }
-
     public Integer readColumns() {
         Console console = Console.getInstance();
         return console.readInt("Columns: ") - 1;
     }
 
     public boolean isValid() {
-        return this.row < Cell.ROWS && this.row >= 0 && this.column >= 0 && this.column < Cell.COLUMNS;
+        return this.column >= 0 && this.column < Cell.COLUMNS;
     }
     public String getErrorMessage() {
         return Error.WRONG_COORDINATES.getMessage();
+    }
+
+    public void setRow(int row) {
+        this.row = row;
     }
 }
