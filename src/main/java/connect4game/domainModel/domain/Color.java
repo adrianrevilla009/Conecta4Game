@@ -10,7 +10,7 @@ public enum Color {
     BLUE,
     NULL;
 
-    static Color get(int ordinal){
+    public static Color get(int ordinal){
         assert ordinal >= 0 && ordinal < Color.NULL.ordinal();
 
         return Color.values()[ordinal];

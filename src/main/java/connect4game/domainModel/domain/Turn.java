@@ -31,10 +31,6 @@ public class Turn {
         }
     }
 
-    int whoStartsGame() {
-        return (int) ((Math.random() * (2 - 1)) + 1);
-    }
-
     void playerPlay() {
         // checks who start turn
         if (this.board.getOccupiedCells() == 0) {
@@ -45,6 +41,10 @@ public class Turn {
         } else {
             this.players.get(this.activePlayer).play();
         }
+    }
+
+    int whoStartsGame() {
+        return (int) ((Math.random() * (2 - 1)) + 1);
     }
 
     void writeWinner(){
