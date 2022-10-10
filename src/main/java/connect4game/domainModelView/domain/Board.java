@@ -33,7 +33,7 @@ public class Board {
 
         for (Map.Entry<Color, List<Cell>> entry : cellMap.entrySet()) {
             for (Cell boardCell : entry.getValue()) {
-                if (boardCell.getRow() == cell.getRow() && boardCell.getColumn() == cell.getColumn()) {
+                if (cell.equals(boardCell)) {
                     return entry.getKey();
                 }
             }
@@ -125,6 +125,7 @@ public class Board {
         return total;
     }
 
+    // Given a cell, retrieves which row is going to be the next free one
     int getNextFreeRow(Cell cell) {
         int nextValue = Cell.ROWS;
 

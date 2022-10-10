@@ -33,7 +33,7 @@ public class Board {
 
         for (Map.Entry<Color, List<Cell>> entry : cellMap.entrySet()) {
             for (Cell boardCell : entry.getValue()) {
-                if (boardCell.getRow() == cell.getRow() && boardCell.getColumn() == cell.getColumn()) {
+                if (cell.equals(boardCell)) {
                     return entry.getKey();
                 }
             }
@@ -117,14 +117,6 @@ public class Board {
         return total == Cell.getNumberCells();
     }
 
-    int getOccupiedCells() {
-        int total = 0;
-        for (Map.Entry<Color, List<Cell>> entry : cellMap.entrySet()) {
-            total += entry.getValue().size();
-        }
-        return total;
-    }
-
     void write() {
         Message.HORIZONTAL_LINE.writeln();
         for (int i = 0; i < Cell.ROWS; i++) {
@@ -138,12 +130,13 @@ public class Board {
         Message.HORIZONTAL_LINE.writeln();
     }
 
+    // Given a cell, retrieves which row is going to be the next free one
     int getNextFreeRow(Cell cell) {
         int nextValue = Cell.ROWS;
 
         for (Map.Entry<Color, List<Cell>> entry : cellMap.entrySet()) {
             for (Cell cell1 : entry.getValue()) {
-                if (cell1.getColumn() ==cell.getColumn() && cell1.getRow() < nextValue) {
+                if (cell1.getColumn() == cell.getColumn() && cell1.getRow() < nextValue) {
                     nextValue = cell1.getRow();
                 }
             }

@@ -2,6 +2,7 @@ package main.java.connect4game.domainModel.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Turn {
     private Board board;
@@ -21,30 +22,18 @@ public class Turn {
             Player player = new Player(Color.get(i), this.board);
             this.players.add(player);
         }
-        this.activePlayer = 0;
+        this.activePlayer = this.whoStartsGame();
     }
 
     void play(){
-        this.playerPlay();
+        this.players.get(this.activePlayer).play();
         if (!this.board.isConnect4(this.getActiveColor())){
             this.activePlayer = (this.activePlayer+1) % Turn.NUMBER_PLAYERS;
         }
     }
 
-    void playerPlay() {
-        // checks who start turn
-        if (this.board.getOccupiedCells() == 0) {
-            int startPlayerIndex = this.whoStartsGame();
-            this.players.get(startPlayerIndex).play();
-            this.activePlayer = startPlayerIndex;
-
-        } else {
-            this.players.get(this.activePlayer).play();
-        }
-    }
-
     int whoStartsGame() {
-        return (int) ((Math.random() * (2 - 1)) + 1);
+        return new Random().nextInt(1 + 1);
     }
 
     void writeWinner(){

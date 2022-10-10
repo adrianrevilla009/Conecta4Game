@@ -34,4 +34,15 @@ public class Cell {
     public void setRow(int row) {
         this.row = row;
     }
+
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Cell other = (Cell) obj;
+        return other.getRow() == this.getRow() && other.getColumn() == this.getColumn();
+    }
 }
