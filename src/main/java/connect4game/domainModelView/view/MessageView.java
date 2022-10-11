@@ -1,5 +1,6 @@
 package main.java.connect4game.domainModelView.view;
 
+import main.java.connect4game.domainModelView.domain.Game;
 import main.java.connect4game.domainModelView.types.Message;
 import main.java.connect4game.domainModelView.utils.Console;
 
@@ -16,5 +17,13 @@ public class MessageView {
         assert message == Message.PLAYER_WIN;
 
         Console.getInstance().writeln(message.toString().replaceAll("#player", "" + player));
+    }
+
+    public void writeResult(Game game) {
+        if (game.isConnect4()) {
+            this.writeln(Message.PLAYER_WIN, game.getActiveColor().name());
+        } else {
+            this.write(Message.EQUAL_GAME);
+        }
     }
 }

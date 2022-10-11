@@ -14,6 +14,6 @@ public class PlayView extends WithGameView{
             this.game.next();
             new BoardView().write(this.game);
         } while (!this.game.isConnect4() && !this.game.isEqualGame());
-        new MessageView().writeln(Message.PLAYER_WIN, this.game.getActiveColor().name());
+        new MessageView().writeResult(this.game);
     }
 }
