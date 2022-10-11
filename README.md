@@ -5,8 +5,7 @@ y en base a esto, se han desarrollado dos versiones (modelo y modelo-vista)
 siguiendo los ejemplos vistos en clase y tomando como referencia 
 el código compartido del TicTacToe.
 
-
-Se ha intentado enfocar la practica de una forma en la que cada responsabilidad delegue a la clase
+Hemos intentado enfocar la practica de una forma en la que cada responsabilidad delegue a la clase
 que le toca, para favorecer la cohesion, disminuir el acoplamiento, mejorar la reusabilidad ...
 No se han utilizado interfaces, ya que se ha considerado un único comportamiento no modificable
 para cada una de las clases, ya que las reglas del juego siempre van a ser las mismas.
@@ -15,32 +14,31 @@ cuando sean relevantes, formateo, evitar YAGNI ...
 
 Objetivos alcanzados:
 
-Dicho esto, considero haber recordado muchas cosas que tenía olvidadas de la carrera, y haber
+Dicho esto, consideramos haber recordado muchas cosas que teniamos olvidadas de la carrera, y haber
 aprendido muchas otras.
 Nota: 2
 
 Comprensión:
 
-Considero que llego a comprender gran parte del material visto en clase, sobre todo teoricamente.
-A pesar de esto, me cuesta idenficar y aplicar ciertos patrones, criterios ... en el ámbito practico,
-sobre todo partiendo de un codigo que no es el mio.
+Consideramos que llegamos a comprender gran parte del material visto en clase, sobre todo teoricamente.
+A pesar de esto, nos cuesta idenficar y aplicar ciertos patrones, criterios ... en el ámbito practico,
+sobre todo partiendo de un codigo que no es el nuestro.
 Nota: 1.5
 
 Reconocimiento conceptual:
 
-Como ya comentaba antes, soy capaz de reconocer muchas de las cosas vistas en clase gracias a las dos
+Como ya comentaba antes, somos capaz de reconocer muchas de las cosas vistas en clase gracias a las dos
 semanas impartidas, aun asi, hay muchas otras como por ejemplo, el reconocimiento de patrones, que se
 me quedan un poco atras.
 Nota: 1.5
 
 Practica:
 
-Considero que gracias a los ejemplos vistos en clase y al código compartido, he sido capaz de hacer una adaptación
+Considero que gracias a los ejemplos vistos en clase y al código compartido, hemos sido capaz de hacer una adaptación
 del juego Conecta4 siguiendo todas las buenas practicas que he sido capaz de identificar. 
 Por tanto, basandome en esto y en el tiempo dedicado, se define la nota de esta sección.
 Nota: 2.5
 
-Por: Gran parte de la practica la he realizado junto con mi compañero Alejandro de la Fuente,
-pero la hemos entregado individualmente ya que llegamos a dos soluciones diferentes y queriamos
-tener la oportunidad de evaluar las dos. Mi nombre es, Adrian Revilla.
+Por: La practica la he realizado junto con mi compañero Alejandro de la Fuente.
+Mi nombre es, Adrian Revilla.
 Fecha de creación: 06/10/2022
