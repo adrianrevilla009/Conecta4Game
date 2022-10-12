@@ -30,7 +30,7 @@ public class CellView {
     }
 
     public Integer readColumns() {
-        main.java.connect4game.domainModel.utils.Console console = main.java.connect4game.domainModel.utils.Console.getInstance();
+        Console console = Console.getInstance();
         return console.readInt("Columns: ") - 1;
     }
 }

@@ -4,7 +4,11 @@ import main.java.connect4game.domainModelView.domain.Game;
 import main.java.connect4game.domainModelView.types.Message;
 import main.java.connect4game.domainModelView.utils.Console;
 
-public class MessageView {
+public class MessageView extends WithGameView {
+
+    MessageView(Game game) {
+        super(game);
+    }
     public void write(Message message) {
         Console.getInstance().write(message.toString());
     }
@@ -19,9 +23,9 @@ public class MessageView {
         Console.getInstance().writeln(message.toString().replaceAll("#player", "" + player));
     }
 
-    public void writeResult(Game game) {
-        if (game.isConnect4()) {
-            this.writeln(Message.PLAYER_WIN, game.getActiveColor().name());
+    public void writeResult() {
+        if (this.game.isConnect4()) {
+            this.writeln(Message.PLAYER_WIN, this.game.getActiveColor().name());
         } else {
             this.write(Message.EQUAL_GAME);
         }

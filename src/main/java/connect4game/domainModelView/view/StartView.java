@@ -9,7 +9,7 @@ public class StartView extends WithGameView{
     }
 
     void interact() {
-        new MessageView().writeln(Message.TITLE);
-        new BoardView().write(this.game);
+        new MessageView(this.game).writeln(Message.TITLE);
+        new BoardView(this.game).write();
     }
 }

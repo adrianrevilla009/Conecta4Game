@@ -11,8 +11,8 @@ public class PlayView extends WithGameView{
         do {
             new PlayerView(this.game).interact();
             this.game.next();
-            new BoardView().write(this.game);
+            new BoardView(this.game).write();
         } while (!this.game.isGameFinished());
-        new MessageView().writeResult(this.game);
+        new MessageView(this.game).writeResult();
     }
 }

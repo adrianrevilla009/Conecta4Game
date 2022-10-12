@@ -5,11 +5,10 @@ import main.java.connect4game.domainModelView.domain.Game;
 import main.java.connect4game.domainModelView.types.Error;
 import main.java.connect4game.domainModelView.types.Message;
 
-public class PlayerView {
-    private Game game;
+public class PlayerView extends WithGameView {
 
     PlayerView(Game game) {
-        this.game = game;
+        super(game);
     }
 
     void interact() {
