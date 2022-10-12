@@ -53,7 +53,15 @@ public class Board {
     boolean isConnect4(Color color) {
         assert !color.isNull();
 
-        // horizontal check
+        if (isConnect4Horizontally(color) || isConnect4Vertically(color) ||
+                isConnect4DownDiagonally(color) || isConnect4UpDiagonally(color)) {
+            return true;
+        }
+        return false;
+    }
+
+    // horizontal check
+    boolean isConnect4Horizontally(Color color) {
         int count = 0;
         for (int i = 0; i < Cell.ROWS; i++) {
             for (int j = 0; j < Cell.COLUMNS; j++) {
@@ -66,7 +74,12 @@ public class Board {
                     return true;
             }
         }
-        //vertical check
+        return false;
+    }
+
+    // vertical check
+    boolean isConnect4Vertically(Color color) {
+        int count = 0;
         for (int j = 0; j < Cell.COLUMNS; j++) {
             for (int i = 0; i < Cell.ROWS; i++) {
                 if (this.getColor(new Cell(i,j)) == color) {
@@ -78,25 +91,33 @@ public class Board {
                     return true;
             }
         }
-        // top-left to bottom-right check
-        for (int rowStart = 0; rowStart < Cell.ROWS - 4; rowStart++) {
-            count = 0;
-            int row, col;
-            for (row = rowStart, col = 0; row < Cell.ROWS && col < Cell.COLUMNS; row++, col++) {
-                if (this.getColor(new Cell(row, col)) == color) {
+        return false;
+    }
+
+    // top-left to bottom-right down half quadrant check
+    boolean isConnect4DownDiagonally(Color color) {
+        for (int i = 0; i < Cell.ROWS - 4; i++) {
+            int count = 0;
+            for (int j = 0; i < Cell.ROWS && j < Cell.COLUMNS; i++, j++) {
+                if (this.getColor(new Cell(i, j)) == color) {
                     count++;
-                    if (count >= 4) return true;
+                    if (count >= 4) {
+                        return true;
+                    }
                 } else {
                     count = 0;
                 }
             }
         }
-        // top-left to bottom-right check
-        for (int colStart = 1; colStart < Cell.COLUMNS - 4; colStart++) {
-            count = 0;
-            int row, col;
-            for (row = 0, col = colStart; row < Cell.ROWS && col < Cell.COLUMNS; row++, col++) {
-                if (this.getColor(new Cell(row, col)) == color) {
+        return false;
+    }
+
+    // top-left to bottom-right up half quadrant check
+    boolean isConnect4UpDiagonally(Color color) {
+        for (int j = 1; j < Cell.COLUMNS - 4; j++) {
+            int count = 0;
+            for (int i = 0; i < Cell.ROWS && j < Cell.COLUMNS; i++, j++) {
+                if (this.getColor(new Cell(i, j)) == color) {
                     count++;
                     if (count >= 4) {
                         return true;

@@ -23,8 +23,12 @@ public class Connect4Game {
         do {
             this.turn.play();
             this.board.write();
-        } while (!this.isConnect4() && !this.isEqualGame());
+        } while (!this.isGameFinished());
         this.writeGameResult();
+    }
+
+    private boolean isGameFinished() {
+        return this.isConnect4() || this.isEqualGame();
     }
 
     private boolean isConnect4() {
