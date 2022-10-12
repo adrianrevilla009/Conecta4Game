@@ -18,12 +18,9 @@ public class Console {
         try {
             input = this.bufferedReader.readLine();
         } catch (Exception ex) {
+            this.write(ex.getMessage());
         }
         return input;
-    }
-
-    public String readString() {
-        return this.readString("");
     }
 
     public int readInt(String title) {
@@ -38,21 +35,6 @@ public class Console {
             }
         } while (!ok);
         return input;
-    }
-
-    public char readChar(String title) {
-        char charValue = ' ';
-        boolean ok = false;
-        do {
-            String input = this.readString(title);
-            if (input.length() != 1) {
-                this.writeError("character");
-            } else {
-                charValue = input.charAt(0);
-                ok = true;
-            }
-        } while (!ok);
-        return charValue;
     }
 
     public void write(String string) {

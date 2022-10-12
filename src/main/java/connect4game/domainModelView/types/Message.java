@@ -1,7 +1,5 @@
 package main.java.connect4game.domainModelView.types;
 
-import main.java.connect4game.domainModel.utils.Console;
-
 public enum Message {
     TITLE("--- CONNECT 4 GAME ---"),
     HORIZONTAL_LINE("---------------"),

@@ -13,11 +13,8 @@ public class Connect4Algorithm {
 
     // diagonals algorithm took from : https://stackoverflow.com/questions/32770321/connect-4-check-for-a-win-algorithm
     public boolean isConnect4(Color color) {
-        if (isConnect4Horizontally(color) || isConnect4Vertically(color) ||
-                isConnect4DownDiagonally(color) || isConnect4UpDiagonally(color)) {
-            return true;
-        }
-        return false;
+        return isConnect4Horizontally(color) || isConnect4Vertically(color) ||
+                isConnect4DownDiagonally(color) || isConnect4UpDiagonally(color);
     }
 
     // horizontal check

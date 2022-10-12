@@ -58,6 +58,7 @@ public class Console {
         try {
             input = this.bufferedReader.readLine();
         } catch (Exception ex) {
+            this.write(ex.getMessage());
         }
         return input;
     }

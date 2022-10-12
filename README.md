@@ -1,6 +1,6 @@
 CONECTA 4
 
-Esta es la primera version del Conecta4, para ello se ha diseñado un modelo 
+Esta es la segunda version del Conecta4, para ello se ha diseñado un modelo 
 y en base a esto, se han desarrollado dos versiones (modelo y modelo-vista)
 siguiendo los ejemplos vistos en clase y tomando como referencia 
 el código compartido del TicTacToe.
@@ -23,7 +23,7 @@ Comprensión:
 Consideramos que llegamos a comprender gran parte del material visto en clase, sobre todo teoricamente.
 A pesar de esto, nos cuesta idenficar y aplicar ciertos patrones, criterios ... en el ámbito practico,
 sobre todo partiendo de un codigo que no es el nuestro.
-Nota: 1.5
+Nota: 2
 
 Reconocimiento conceptual:
 
