@@ -25,6 +25,10 @@ public class Game {
         return this.turn.getActiveColor();
     }
 
+    public boolean isGameFinished() {
+        return this.isConnect4() || this.isEqualGame();
+    }
+
     public boolean isConnect4() {
         return this.board.isConnect4(this.turn.getActiveColor());
     }

@@ -53,11 +53,10 @@ public class Board {
         return this.isOccupied(cell, Color.NULL);
     }
 
-    // diagonals algorithm took from : https://stackoverflow.com/questions/32770321/connect-4-check-for-a-win-algorithm
     boolean isConnect4(Color color) {
         assert !color.isNull();
 
-        return connect4Algorithm.isConnect4(color);
+        return this.connect4Algorithm.isConnect4(color);
     }
 
     boolean isEqualGame() {

@@ -1,5 +1,6 @@
 package main.java.connect4game.domainModelView.domain;
 
+import main.java.connect4game.domainModelView.utils.Connect4Algorithm;
 import main.java.connect4game.domainModelView.types.Color;
 
 import java.util.ArrayList;
@@ -10,9 +11,12 @@ import java.util.Map;
 public class Board {
     private Map<Color, List<Cell>> cellMap;
 
+    private Connect4Algorithm connect4Algorithm;
+
     Board() {
         cellMap = new HashMap<>();
         this.reset();
+        connect4Algorithm = new Connect4Algorithm(this);
     }
 
     void reset() {
@@ -49,64 +53,10 @@ public class Board {
         return this.isOccupied(cell, Color.NULL);
     }
 
-    // diagonals algorithm took from : https://stackoverflow.com/questions/32770321/connect-4-check-for-a-win-algorithm
     boolean isConnect4(Color color) {
         assert !color.isNull();
 
-        // horizontal check
-        int count = 0;
-        for (int i = 0; i < Cell.ROWS; i++) {
-            for (int j = 0; j < Cell.COLUMNS; j++) {
-                if (this.getColor(new Cell(i,j)) == color) {
-                    count++;
-                } else {
-                    count = 0;
-                }
-                if (count >= 4)
-                    return true;
-            }
-        }
-        //vertical check
-        for (int j = 0; j < Cell.COLUMNS; j++) {
-            for (int i = 0; i < Cell.ROWS; i++) {
-                if (this.getColor(new Cell(i,j)) == color) {
-                    count++;
-                } else {
-                    count = 0;
-                }
-                if (count >= 4)
-                    return true;
-            }
-        }
-        // top-left to bottom-right check
-        for (int rowStart = 0; rowStart < Cell.ROWS - 4; rowStart++) {
-            count = 0;
-            int row, col;
-            for (row = rowStart, col = 0; row < Cell.ROWS && col < Cell.COLUMNS; row++, col++) {
-                if (this.getColor(new Cell(row, col)) == color) {
-                    count++;
-                    if (count >= 4) return true;
-                } else {
-                    count = 0;
-                }
-            }
-        }
-        // top-left to bottom-right check
-        for (int colStart = 1; colStart < Cell.COLUMNS - 4; colStart++) {
-            count = 0;
-            int row, col;
-            for (row = 0, col = colStart; row < Cell.ROWS && col < Cell.COLUMNS; row++, col++) {
-                if (this.getColor(new Cell(row, col)) == color) {
-                    count++;
-                    if (count >= 4) {
-                        return true;
-                    }
-                } else {
-                    count = 0;
-                }
-            }
-        }
-        return false;
+        return this.connect4Algorithm.isConnect4(color);
     }
 
     boolean isEqualGame() {
