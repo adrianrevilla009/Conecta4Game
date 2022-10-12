@@ -1,5 +1,6 @@
 package main.java.connect4game.domainModel.domain;
 
+import main.java.connect4game.domainModel.utils.Connect4Algorithm;
 import main.java.connect4game.domainModel.utils.Console;
 
 import java.util.ArrayList;
@@ -10,9 +11,12 @@ import java.util.Map;
 public class Board {
     private Map<Color, List<Cell>> cellMap;
 
+    private Connect4Algorithm connect4Algorithm;
+
     Board() {
         cellMap = new HashMap<>();
         this.reset();
+        connect4Algorithm = new Connect4Algorithm(this);
     }
 
     void reset() {
@@ -29,7 +33,7 @@ public class Board {
         cellMap.get(color).add(cell);
     }
 
-    private Color getColor(Cell cell) {
+    public Color getColor(Cell cell) {
 
         for (Map.Entry<Color, List<Cell>> entry : cellMap.entrySet()) {
             for (Cell boardCell : entry.getValue()) {
@@ -53,81 +57,7 @@ public class Board {
     boolean isConnect4(Color color) {
         assert !color.isNull();
 
-        if (isConnect4Horizontally(color) || isConnect4Vertically(color) ||
-                isConnect4DownDiagonally(color) || isConnect4UpDiagonally(color)) {
-            return true;
-        }
-        return false;
-    }
-
-    // horizontal check
-    boolean isConnect4Horizontally(Color color) {
-        int count = 0;
-        for (int i = 0; i < Cell.ROWS; i++) {
-            for (int j = 0; j < Cell.COLUMNS; j++) {
-                if (this.getColor(new Cell(i,j)) == color) {
-                    count++;
-                } else {
-                    count = 0;
-                }
-                if (count >= 4)
-                    return true;
-            }
-        }
-        return false;
-    }
-
-    // vertical check
-    boolean isConnect4Vertically(Color color) {
-        int count = 0;
-        for (int j = 0; j < Cell.COLUMNS; j++) {
-            for (int i = 0; i < Cell.ROWS; i++) {
-                if (this.getColor(new Cell(i,j)) == color) {
-                    count++;
-                } else {
-                    count = 0;
-                }
-                if (count >= 4)
-                    return true;
-            }
-        }
-        return false;
-    }
-
-    // top-left to bottom-right down half quadrant check
-    boolean isConnect4DownDiagonally(Color color) {
-        for (int i = 0; i < Cell.ROWS - 4; i++) {
-            int count = 0;
-            for (int j = 0; i < Cell.ROWS && j < Cell.COLUMNS; i++, j++) {
-                if (this.getColor(new Cell(i, j)) == color) {
-                    count++;
-                    if (count >= 4) {
-                        return true;
-                    }
-                } else {
-                    count = 0;
-                }
-            }
-        }
-        return false;
-    }
-
-    // top-left to bottom-right up half quadrant check
-    boolean isConnect4UpDiagonally(Color color) {
-        for (int j = 1; j < Cell.COLUMNS - 4; j++) {
-            int count = 0;
-            for (int i = 0; i < Cell.ROWS && j < Cell.COLUMNS; i++, j++) {
-                if (this.getColor(new Cell(i, j)) == color) {
-                    count++;
-                    if (count >= 4) {
-                        return true;
-                    }
-                } else {
-                    count = 0;
-                }
-            }
-        }
-        return false;
+        return connect4Algorithm.isConnect4(color);
     }
 
     boolean isEqualGame() {
