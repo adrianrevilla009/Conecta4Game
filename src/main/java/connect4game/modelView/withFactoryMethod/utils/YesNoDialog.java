@@ -1,6 +1,4 @@
-package main.java.connect4game.modelView.basic.utils;
-
-import main.java.connect4game.domainModel.basic.utils.Console;
+package main.java.connect4game.modelView.withFactoryMethod.utils;
 
 public class YesNoDialog {
     private static final char AFFIRMATIVE = 'y';
