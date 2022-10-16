@@ -14,4 +14,8 @@ public abstract class Controller {
     public Color getColor(Cell cell) {
         return this.game.getColor(cell);
     }
+
+    public Game getGame() {
+        return game;
+    }
 }

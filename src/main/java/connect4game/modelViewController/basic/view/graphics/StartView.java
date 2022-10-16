@@ -1,6 +1,6 @@
 package main.java.connect4game.modelViewController.basic.view.graphics;
 
-import main.java.connect4game.modelViewController.basic.domain.Game;
+import main.java.connect4game.modelViewController.basic.controller.StartController;
 import main.java.connect4game.modelViewController.basic.types.Message;
 
 import javax.swing.*;
@@ -8,12 +8,12 @@ import java.awt.*;
 
 public class StartView extends JFrame {
 
-    private Game game;
+    private StartController startController;
 
-    StartView(Game game) {
+    StartView(StartController startController) {
         super(Message.TITLE.toString());
-        assert game != null;
-        this.game = game;
+        assert startController != null;
+        this.startController = startController;
         this.getContentPane().setLayout(new GridBagLayout());
         this.setSize(400, 500);
         this.setLocationRelativeTo(null);
@@ -23,7 +23,7 @@ public class StartView extends JFrame {
 
     void interact() {
         GameView gameView;
-        gameView = new GameView(this.game);
+        gameView = new GameView(this.startController.getGame());
         gameView.write();
         this.getContentPane().add(gameView, new Constraints(0, 0, 3, 1));
         this.setVisible(false);

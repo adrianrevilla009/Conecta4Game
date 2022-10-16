@@ -2,7 +2,6 @@ package main.java.connect4game.modelViewController.basic.view.console;
 
 import main.java.connect4game.modelViewController.basic.controller.PlayController;
 import main.java.connect4game.modelViewController.basic.domain.Cell;
-import main.java.connect4game.modelViewController.basic.domain.Game;
 import main.java.connect4game.modelViewController.basic.types.Error;
 import main.java.connect4game.modelViewController.basic.types.Message;
 import main.java.connect4game.modelViewController.basic.view.ErrorView;

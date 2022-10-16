@@ -1,7 +1,6 @@
 package main.java.connect4game.modelViewController.basic.domain;
 
 import main.java.connect4game.modelViewController.basic.types.Color;
-import main.java.connect4game.modelViewController.basic.types.Message;
 import main.java.connect4game.modelViewController.basic.utils.Connect4Algorithm;
 
 import java.util.ArrayList;

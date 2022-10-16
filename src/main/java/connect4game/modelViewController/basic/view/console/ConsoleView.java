@@ -3,7 +3,6 @@ package main.java.connect4game.modelViewController.basic.view.console;
 import main.java.connect4game.modelViewController.basic.controller.PlayController;
 import main.java.connect4game.modelViewController.basic.controller.ResumeController;
 import main.java.connect4game.modelViewController.basic.controller.StartController;
-import main.java.connect4game.modelViewController.basic.domain.Game;
 import main.java.connect4game.modelViewController.basic.view.View;
 
 public class ConsoleView extends View {

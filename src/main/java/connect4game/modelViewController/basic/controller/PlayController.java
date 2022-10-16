@@ -42,5 +42,9 @@ public class PlayController extends Controller{
         return this.game.getOccupiedCells();
     }
 
+    public void reset() {
+        this.game.reset();
+    }
+
 
 }

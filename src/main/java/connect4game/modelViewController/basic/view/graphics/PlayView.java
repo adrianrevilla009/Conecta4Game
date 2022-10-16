@@ -1,7 +1,7 @@
 package main.java.connect4game.modelViewController.basic.view.graphics;
 
+import main.java.connect4game.modelViewController.basic.controller.PlayController;
 import main.java.connect4game.modelViewController.basic.domain.Cell;
-import main.java.connect4game.modelViewController.basic.domain.Game;
 import main.java.connect4game.modelViewController.basic.types.Error;
 import main.java.connect4game.modelViewController.basic.types.Message;
 import main.java.connect4game.modelViewController.basic.view.ErrorView;
@@ -11,23 +11,23 @@ import java.awt.*;
 
 class PlayView extends JFrame {
     private CellPutView cellPutView;
-    private Game game;
+    private PlayController playController;
     private GameView gameView;
 
-    PlayView(Game game) {
+    PlayView(PlayController playController) {
         super(Message.TITLE.toString());
-        assert game != null;
+        assert playController != null;
 
-        this.game = game;
+        this.playController = playController;
         this.getContentPane().setLayout(new GridBagLayout());
         this.setSize(400, 500);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.gameView = new GameView(game);
+        this.gameView = new GameView(this.playController.getGame());
         this.getContentPane().add(this.gameView);
         this.gameView.write();
         this.setVisible(true);
-        this.cellPutView = new CellPutView(this.game);
+        this.cellPutView = new CellPutView(this.playController.getGame());
         this.getContentPane().add(this.cellPutView, new Constraints(0, 1, 3, 1));
         this.gameView.removeAll();
         this.setVisible(true);
@@ -37,15 +37,15 @@ class PlayView extends JFrame {
         this.gameView.removeAll();
         this.gameView.write();
         this.setVisible(true);
-        this.game.next(); // we need to set random start user
+        this.playController.next(); // we need to set random start user
         do {
-            if (this.game.getOccupiedCells() < Cell.getNumberCells()) {
+            if (this.playController.getOccupiedCells() < Cell.getNumberCells()) {
                 this.put();
             }
-            this.game.next();
+            this.playController.next();
             this.gameView.write();
             this.setVisible(true);
-        } while (!this.game.isGameFinished());
+        } while (!this.playController.isGameFinished());
         this.showWinMessage();
         this.setVisible(true);
     }
@@ -61,28 +61,36 @@ class PlayView extends JFrame {
                 isColumnIntroduced = this.cellPutView.isColumnIntroduced();
                 System.out.println("");
             } while (!isColumnIntroduced);
-            error = this.game.getPutTokenError(cell);
+            error = this.playController.getPutTokenError(cell);
             if (!error.isNull()) {
                 JOptionPane.showMessageDialog(null, ErrorView.MESSAGES[error.ordinal()], "ERROR",
                         JOptionPane.WARNING_MESSAGE);
                 this.cellPutView.resetCell();
             } else {
-                this.game.putToken(cell);
+                this.playController.putToken(cell);
                 this.cellPutView.resetCell();
             }
         } while (!isColumnIntroduced);
     }
 
     private void showWinMessage() {
-        if (this.game.isConnect4()) {
+        if (this.playController.isConnect4()) {
             JOptionPane.showMessageDialog(null,
-                    Message.PLAYER_WIN.toString().replaceAll("#player", "" + this.game.getActiveColor().toString()),
+                    Message.PLAYER_WIN.toString().replaceAll("#player", "" + this.playController.getActiveColor().toString()),
                     "GAME FINISHED",
                     JOptionPane.WARNING_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(null, Message.EQUAL_GAME, "GAME FINISHED",
                     JOptionPane.WARNING_MESSAGE);
         }
+    }
+
+    public void reset() {
+        this.playController.reset();
+    }
+
+    public int getOccupiedCells() {
+        return this.playController.getOccupiedCells();
     }
 
 }

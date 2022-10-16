@@ -8,7 +8,9 @@ class ResumeView {
 
 	private boolean newGame;
 
-	ResumeView() {
+	ResumeView() {}
+
+	void resume() {
 		this.newGame = (JOptionPane.showConfirmDialog(null, Message.RESUME.toString(),
 				Message.TITLE.toString(), JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION);
 	}
