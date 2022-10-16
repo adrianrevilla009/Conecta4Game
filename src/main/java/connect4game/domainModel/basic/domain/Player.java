@@ -24,7 +24,7 @@ public class Player {
         Cell cell;
         Error error;
         do {
-            cell = this.getCell(Message.ENTER_COORDINATE_TO_PUT);
+            cell = this.getCell(Message.ENTER_COLUMN_TO_PUT);
             error = this.getTokenError(cell);
         } while (!error.isNull());
         this.board.putToken(cell, this.color);

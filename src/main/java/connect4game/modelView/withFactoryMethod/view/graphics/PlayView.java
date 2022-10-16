@@ -37,6 +37,7 @@ class PlayView extends JFrame {
         this.gameView.removeAll();
         this.gameView.write();
         this.setVisible(true);
+        this.game.next(); // we need to set random start user
         do {
             if (this.game.getOccupiedCells() < Cell.getNumberCells()) {
                 this.put();

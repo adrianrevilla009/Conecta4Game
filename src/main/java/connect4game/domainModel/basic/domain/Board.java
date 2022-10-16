@@ -80,7 +80,7 @@ public class Board {
         Message.HORIZONTAL_LINE.writeln();
     }
 
-    // Given a cell, retrieves which row is going to be the next free one
+    // Given a cell with a fulfilled column, retrieves which row is going to be the next free one
     int getNextFreeRow(Cell cell) {
         int nextValue = Cell.ROWS;
 

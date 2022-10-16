@@ -21,7 +21,7 @@ public class PlayerView extends WithGameView {
         Cell cell;
         Error error;
         do {
-            cell = this.getCell(Message.ENTER_COORDINATE_TO_PUT);
+            cell = this.getCell(Message.ENTER_COLUMN_TO_PUT);
             error = this.getPutTokenError(cell);
         } while (!error.isNull());
         this.game.putToken(cell);
