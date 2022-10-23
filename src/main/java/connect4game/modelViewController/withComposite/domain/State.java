@@ -1,9 +1,8 @@
-package main.java.connect4game.modelViewController.withoutDoubleDispatching.domain;
+package main.java.connect4game.modelViewController.withComposite.domain;
 
-import main.java.connect4game.modelViewController.withoutDoubleDispatching.types.StateValue;
+import main.java.connect4game.modelViewController.withComposite.types.StateValue;
 
 public class State {
-
     private StateValue stateValue;
 
     public State() {
@@ -21,5 +20,4 @@ public class State {
     public StateValue getValueState() {
         return this.stateValue;
     }
-
 }
