@@ -75,14 +75,6 @@ public class Board {
         return total;
     }
 
-    List<Cell> getOccupiedCellList() {
-        List<Cell> cellList = new ArrayList<>();
-        for (Map.Entry<Color, List<Cell>> entry : cellMap.entrySet()) {
-            cellList.addAll(entry.getValue());
-        }
-        return cellList;
-    }
-
     Color getColorFromCell(Cell cell) {
         for (Map.Entry<Color, List<Cell>> entry : cellMap.entrySet()) {
             List<Cell> cellList = entry.getValue();
@@ -111,33 +103,13 @@ public class Board {
         return nextValue;
     }
 
-    char[] toCharacterArray() {
-        char[] characters = new char[Cell.ROWS * Cell.COLUMNS];
-        int charactersCount = 0;
-        int arrayIndexCount = 0;
-        List<Cell> cellList = this.getOccupiedCellList();
-        for (Cell cell : cellList) {
-            characters[cell.getRow()][cell.getColumn()] =
+    List<String> toCharacterArray() {
+        List<String> strings = new ArrayList<>();
+        for (int i = 0; i < Cell.ROWS; i++) {
+            for (int j = 0; j < Cell.COLUMNS; j++) {
+                strings.add(this.getColorFromCell(new Cell(i, j)).toString());
+            }
         }
-
-        do {
-            for (int i = 0; i < Cell.ROWS; i++) {
-                for (int j = 0; j < Coordinate.DIMENSION; j++) {
-                    characters[charactersCount++] = this.colors[i][j].toString().charAt(0);
-                }
-            }
-            /*for (int i = 0; i < Color.getAll().size(); i++) {
-                Color color = Color.getAll().get(i);
-                try {
-                    characters[charactersCount] = this.cellMap.get(color).get(arrayIndexCount).toString().charAt(0);
-                } catch (Exception exception) {
-                    characters[charactersCount] = Color.NULL.toString().charAt(0);
-                }
-                // characters[charactersCount] = this.cellMap.get(color).get(arrayIndexCount).toString().charAt(0);
-                charactersCount++;
-            }
-            arrayIndexCount++;*/
-        } while(charactersCount < this.getOccupiedCells());
-        return characters;
+        return strings;
     }
 }

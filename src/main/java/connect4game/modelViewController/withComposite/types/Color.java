@@ -28,4 +28,8 @@ public enum Color {
         colors.remove(Color.NULL);
         return colors;
     }
+
+    public static Color getByName(String name) {
+        return Color.valueOf(name);
+    }
 }

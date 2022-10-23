@@ -1,7 +1,6 @@
 package main.java.connect4game.modelViewController.withComposite;
 
 import main.java.connect4game.modelViewController.withComposite.controller.AcceptorController;
-import main.java.connect4game.modelViewController.withComposite.controller.Controller;
 import main.java.connect4game.modelViewController.withComposite.controller.Logic;
 import main.java.connect4game.modelViewController.withComposite.view.View;
 

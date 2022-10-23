@@ -18,9 +18,9 @@ public abstract class Menu {
     public void execute() {
         // ADD
         ArrayList<Command> commands = new ArrayList<>();
-        for (int i = 0; i < this.commandList.size(); i++) {
-            if (this.commandList.get(i).isActive()) {
-                commands.add(this.commandList.get(i));
+        for (Command command : this.commandList) {
+            if (command.isActive()) {
+                commands.add(command);
             }
         }
         assert commands.size() > 0;

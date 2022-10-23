@@ -1,8 +1,6 @@
 package main.java.connect4game.modelViewController.withComposite.controller;
 
-import main.java.connect4game.modelViewController.withComposite.domain.Game;
 import main.java.connect4game.modelViewController.withComposite.domain.Session;
-import main.java.connect4game.modelViewController.withComposite.domain.State;
 import main.java.connect4game.modelViewController.withComposite.types.StateValue;
 
 import java.util.HashMap;

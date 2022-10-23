@@ -45,8 +45,4 @@ public class Cell {
         Cell other = (Cell) obj;
         return other.getRow() == this.getRow() && other.getColumn() == this.getColumn();
     }
-
-    public boolean isEmptyCell() {
-        return this.row == 0 && this.column == 0;
-    }
 }

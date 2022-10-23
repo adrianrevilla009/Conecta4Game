@@ -2,10 +2,12 @@ package main.java.connect4game.modelViewController.withComposite.domain;
 
 import main.java.connect4game.modelViewController.withComposite.types.Color;
 
+import java.util.List;
+
 class Memento {
 
     private int activePlayer;
-    private char[] boardColors;
+    private List<String> boardColors;
 
     Memento(Board board, Turn turn) {
         this.boardColors = board.toCharacterArray();
@@ -18,11 +20,11 @@ class Memento {
         for (int i = 0; i < Cell.ROWS; i++) {
             for (int j = 0; j < Cell.COLUMNS; j++) {
                 try {
-                    board.putToken(new Cell(i, j), Color.get(this.boardColors[colorsCount]));
-                    colorsCount++;
+                    board.putToken(new Cell(i, j), Color.getByName(this.boardColors.get(colorsCount)));
                 } catch (Exception e) {
 
                 }
+                colorsCount++;
             }
         }
         return board;
@@ -34,8 +36,8 @@ class Memento {
 
     int getPlayerPutTokens(Color color) {
         int playerPutTokens = 0;
-        for (int i = 0; i < this.boardColors.length; i++) {
-            if (Color.get(this.boardColors[i]) == color) {
+        for (String boardColor : this.boardColors) {
+            if (Color.getByName(boardColor) == color) {
                 playerPutTokens++;
             }
         }
