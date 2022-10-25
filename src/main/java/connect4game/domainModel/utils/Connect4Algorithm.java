@@ -3,6 +3,10 @@ package main.java.connect4game.domainModel.utils;
 import main.java.connect4game.domainModel.domain.Board;
 import main.java.connect4game.domainModel.domain.Cell;
 import main.java.connect4game.domainModel.domain.Color;
+import main.java.connect4game.domainModel.domain.algorithm.Column;
+import main.java.connect4game.domainModel.domain.algorithm.Row;
+
+import java.util.List;
 
 public class Connect4Algorithm {
     private Board board;
@@ -18,7 +22,7 @@ public class Connect4Algorithm {
     }
 
     // horizontal check
-    private boolean isConnect4Horizontally(Color color) {
+    /*private boolean isConnect4Horizontally(Color color) {
         int count = 0;
         for (int i = 0; i < Cell.ROWS; i++) {
             for (int j = 0; j < Cell.COLUMNS; j++) {
@@ -32,10 +36,27 @@ public class Connect4Algorithm {
             }
         }
         return false;
+    }*/
+    private boolean isConnect4Horizontally(Color color) {
+        for (Row row : this.board.getRowList()) {
+            List<Cell> cellList = row.getCellList();
+            int count = 0;
+            for (Cell cell : cellList) {
+                if (this.board.getColor(cell) == color) {
+                    count++;
+                } else {
+                    count = 0;
+                }
+            }
+            if (count == 4) {
+                return true;
+            }
+        }
+        return false;
     }
 
     // vertical check
-    private boolean isConnect4Vertically(Color color) {
+    /*private boolean isConnect4Vertically(Color color) {
         int count = 0;
         for (int j = 0; j < Cell.COLUMNS; j++) {
             for (int i = 0; i < Cell.ROWS; i++) {
@@ -46,6 +67,23 @@ public class Connect4Algorithm {
                 }
                 if (count >= 4)
                     return true;
+            }
+        }
+        return false;
+    }*/
+    private boolean isConnect4Vertically(Color color) {
+        for (Column column : this.board.getColumnList()) {
+            List<Cell> cellList = column.getCellList();
+            int count = 0;
+            for (Cell cell : cellList) {
+                if (this.board.getColor(cell) == color) {
+                    count++;
+                } else {
+                    count = 0;
+                }
+            }
+            if (count == 4) {
+                return true;
             }
         }
         return false;
