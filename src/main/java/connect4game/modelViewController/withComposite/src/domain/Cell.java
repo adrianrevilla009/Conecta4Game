@@ -35,6 +35,10 @@ public class Cell {
         this.row = row;
     }
 
+    public void setColumn(int column) {
+        this.column = column;
+    }
+
     public boolean equals(Object obj) {
         if (this == obj)
             return true;

@@ -13,13 +13,13 @@ public class Board {
 
     private Connect4Algorithm connect4Algorithm;
 
-    Board() {
+    public Board() {
         cellMap = new HashMap<>();
         this.reset();
         connect4Algorithm = new Connect4Algorithm(this);
     }
 
-    void reset() {
+    public void reset() {
         Color.getColors().forEach(color -> {
             if (color != Color.NULL) {
                 cellMap.put(color, new ArrayList<>());
@@ -27,7 +27,7 @@ public class Board {
         });
     }
 
-    void putToken(Cell cell, Color color) {
+    public void putToken(Cell cell, Color color) {
         assert !color.isNull();
 
         cellMap.get(color).add(cell);
@@ -45,21 +45,21 @@ public class Board {
         return Color.NULL;
     }
 
-    boolean isOccupied(Cell cell, Color color) {
+    public boolean isOccupied(Cell cell, Color color) {
         return this.getColor(cell) == color;
     }
 
-    boolean isEmpty(Cell cell) {
+    public boolean isEmpty(Cell cell) {
         return this.isOccupied(cell, Color.NULL);
     }
 
-    boolean isConnect4(Color color) {
+    public boolean isConnect4(Color color) {
         assert !color.isNull();
 
         return this.connect4Algorithm.isConnect4(color);
     }
 
-    boolean isEqualGame() {
+    public boolean isEqualGame() {
         int total = 0;
         for (Map.Entry<Color, List<Cell>> entry : cellMap.entrySet()) {
             total += entry.getValue().size();
@@ -67,7 +67,7 @@ public class Board {
         return total == Cell.getNumberCells();
     }
 
-    int getOccupiedCells() {
+    public int getOccupiedCells() {
         int total = 0;
         for (Map.Entry<Color, List<Cell>> entry : cellMap.entrySet()) {
             total += entry.getValue().size();
@@ -75,7 +75,7 @@ public class Board {
         return total;
     }
 
-    Color getColorFromCell(Cell cell) {
+    public Color getColorFromCell(Cell cell) {
         for (Map.Entry<Color, List<Cell>> entry : cellMap.entrySet()) {
             List<Cell> cellList = entry.getValue();
             boolean exists = cellList.stream().
@@ -88,7 +88,7 @@ public class Board {
     }
 
     // Given a cell with a fulfilled column, retrieves which row is going to be the next free one
-    int getNextFreeRow(Cell cell) {
+    public int getNextFreeRow(Cell cell) {
         int nextValue = Cell.ROWS;
 
         for (Map.Entry<Color, List<Cell>> entry : cellMap.entrySet()) {
@@ -103,7 +103,7 @@ public class Board {
         return nextValue;
     }
 
-    List<String> toCharacterArray() {
+    public List<String> toCharacterArray() {
         List<String> strings = new ArrayList<>();
         for (int i = 0; i < Cell.ROWS; i++) {
             for (int j = 0; j < Cell.COLUMNS; j++) {
@@ -111,5 +111,13 @@ public class Board {
             }
         }
         return strings;
+    }
+
+    public void setCellMap(Map<Color, List<Cell>> cellMap) {
+        this.cellMap = cellMap;
+    }
+
+    public Map<Color, List<Cell>> getCellMap() {
+        return cellMap;
     }
 }

@@ -30,9 +30,4 @@ public class GraphicsViewFactory extends ViewFactory {
     public StartView createStartView() {
         return null;
     }
-
-    @Override
-    public ErrorView createErrorView() {
-        return null;
-    }
 }

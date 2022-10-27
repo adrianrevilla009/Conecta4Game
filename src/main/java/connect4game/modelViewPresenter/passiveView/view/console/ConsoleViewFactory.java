@@ -1,6 +1,5 @@
 package main.java.connect4game.modelViewPresenter.passiveView.view.console;
 
-import main.java.connect4game.modelViewPresenter.passiveView.view.ErrorView;
 import main.java.connect4game.modelViewPresenter.passiveView.view.ViewFactory;
 
 public class ConsoleViewFactory extends ViewFactory {
@@ -28,11 +27,6 @@ public class ConsoleViewFactory extends ViewFactory {
     @Override
     public StartView createStartView() {
         return new StartView();
-    }
-
-    @Override
-    public ErrorView createErrorView() {
-        return new ErrorView();
     }
 
 }
