@@ -62,8 +62,8 @@ public class PlayController extends Controller implements AcceptorController {
         return this.playActionController.getPutTokenError(cell);
     }
 
-    public int getNextFreeRow(Cell cell) {
-        return this.playActionController.getNextFreeRow(cell);
+    public int getNextFreeRowByColumn(int column) {
+        return this.playActionController.getNextFreeRowByColumn(column);
     }
 
     public Color getActiveColor() {

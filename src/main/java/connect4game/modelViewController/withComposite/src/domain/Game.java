@@ -47,7 +47,7 @@ public class Game {
     }
 
     public boolean isEqualGame() {
-        return this.board.isEqualGame();
+        return this.board.isFullBoard();
     }
 
     public Color getColor(Cell cell) {
@@ -66,7 +66,7 @@ public class Game {
         return this.turn.getPutTokenError(cell);
     }
 
-    public int getNextFreeRow(Cell cell) {
-        return this.board.getNextFreeRow(cell);
+    public int getNextFreeRowByColumn(int column) {
+        return this.board.getNextFreeRowByColumn(column);
     }
 }

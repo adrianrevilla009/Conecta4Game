@@ -33,7 +33,7 @@ public class PlayerView {
         assert message != null;
 
         Cell cell = new CellView().read(message.toString());
-        cell.setRow(this.playController.getNextFreeRow(cell));
+        cell.setRow(this.playController.getNextFreeRowByColumn(cell.getColumn()));
         return cell;
     }
 

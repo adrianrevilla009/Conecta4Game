@@ -59,7 +59,7 @@ public class Board {
         return this.connect4Algorithm.isConnect4(color);
     }
 
-    public boolean isEqualGame() {
+    public boolean isFullBoard() {
         int total = 0;
         for (Map.Entry<Color, List<Cell>> entry : cellMap.entrySet()) {
             total += entry.getValue().size();
@@ -87,13 +87,13 @@ public class Board {
         return Color.NULL;
     }
 
-    // Given a cell with a fulfilled column, retrieves which row is going to be the next free one
-    public int getNextFreeRow(Cell cell) {
+    // Given a column index, retrieves which row is going to be the next free one
+    public int getNextFreeRowByColumn(int column) {
         int nextValue = Cell.ROWS;
 
         for (Map.Entry<Color, List<Cell>> entry : cellMap.entrySet()) {
             for (Cell cell1 : entry.getValue()) {
-                if (cell1.getColumn() ==cell.getColumn() && cell1.getRow() < nextValue) {
+                if (cell1.getColumn() ==column && cell1.getRow() < nextValue) {
                     nextValue = cell1.getRow();
                 }
             }
@@ -113,11 +113,9 @@ public class Board {
         return strings;
     }
 
+    // se supone que no hay que tocar el codigo de produccion. Pero en este caso, para meter celdas en un mapa y asociarselo al board
+    // necesito hacer un set. Podria hacerlo con putToken, pero estaría bien meter un metodo que va a ser probado en el beforeEach?
     public void setCellMap(Map<Color, List<Cell>> cellMap) {
         this.cellMap = cellMap;
-    }
-
-    public Map<Color, List<Cell>> getCellMap() {
-        return cellMap;
     }
 }

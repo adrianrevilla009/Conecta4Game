@@ -78,8 +78,8 @@ public class Session {
         this.game.putToken(cell);
     }
 
-    public int getNextFreeRow(Cell cell) {
-        return this.game.getNextFreeRow(cell);
+    public int getNextFreeRowByColumn(int column) {
+        return this.game.getNextFreeRowByColumn(column);
     }
 
     public int getOccupiedCells() {

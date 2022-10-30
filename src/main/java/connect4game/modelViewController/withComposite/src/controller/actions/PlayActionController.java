@@ -36,8 +36,8 @@ public class PlayActionController extends Controller {
         return this.session.isGameFinished();
     }
 
-    public int getNextFreeRow(Cell cell) {
-        return this.session.getNextFreeRow(cell);
+    public int getNextFreeRowByColumn(int column) {
+        return this.session.getNextFreeRowByColumn(column);
     }
 
     public int getOccupiedCells() {
