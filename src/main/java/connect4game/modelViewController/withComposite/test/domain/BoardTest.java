@@ -9,19 +9,23 @@ import org.junit.jupiter.api.Test;
 
 import java.util.*;
 
+import static java.util.Map.entry;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BoardTest {
 
     private Board board;
+    private BoardBuilder boardBuilder;
 
     @BeforeEach
     public void beforeEach() {
         this.board = new Board();
-        this.board.putToken(new Cell(1,1), Color.BLUE);
-        this.board.putToken(new Cell(1,2), Color.BLUE);
-        this.board.putToken(new Cell(2,1), Color.GREEN);
-        this.board.putToken(new Cell(1,2), Color.GREEN);
+        this.board.putToken(new Cell(4,1), Color.BLUE);
+        this.board.putToken(new Cell(4,2), Color.BLUE);
+        this.board.putToken(new Cell(3,1), Color.GREEN);
+        this.board.putToken(new Cell(3,2), Color.GREEN);
+        // with builder
+        this.boardBuilder = new BoardBuilder();
     }
 
     @Test()
@@ -42,30 +46,30 @@ class BoardTest {
     @Test()
     @Description("Check whether a cell is given return its color of the board or not")
     public void testCorrectColorWhenGetColorFromACellInBoard() {
-        Color color = this.board.getColor(new Cell(1,1));
+        Color color = this.board.getColor(new Cell(4,1));
         assertEquals(color, Color.BLUE);
     }
 
     @Test()
     @Description("Check given some i and j positions of the board, whether a cell of a color is already added in or not")
     public void testGivenCoordinateAndColorIfBoardCellIsOccupied() {
-        assertTrue(this.board.isOccupied(new Cell(1,1), Color.BLUE));
-        assertFalse(this.board.isOccupied(new Cell(1,1), Color.GREEN));
+        assertTrue(this.board.isOccupied(new Cell(4,1), Color.BLUE));
+        assertFalse(this.board.isOccupied(new Cell(4,1), Color.GREEN));
         assertFalse(this.board.isOccupied(new Cell(1,3), Color.BLUE));
     }
 
     @Test()
     @Description("Check given some i and j positions of the board, whether a cell is added or not")
     public void testGivenACellIfBoardPositionIsEmpty() {
-        assertFalse(this.board.isEmpty(new Cell(1,1)));
+        assertFalse(this.board.isEmpty(new Cell(4,1)));
         assertTrue(this.board.isEmpty(new Cell(1,5)));
     }
 
     @Test()
     @Description("Check given some coordinates to make 4 in a row in the board, whether the algorithm identifies it as a win play")
     public void testGiven4SameColorCellsIfIsConnect4() {
-        this.board.putToken(new Cell(1,3), Color.BLUE);
-        this.board.putToken(new Cell(1,4), Color.BLUE);
+        this.board.putToken(new Cell(4,3), Color.BLUE);
+        this.board.putToken(new Cell(4,4), Color.BLUE);
         assertTrue(this.board.isConnect4(Color.BLUE));
     }
 
@@ -95,7 +99,7 @@ class BoardTest {
     @Test()
     @Description("Check whether a given color matches in an already added cells into the board")
     public void testGivenSomeCellCoordinatesIfTheReturnedColorMatches() {
-        Color blueColor = this.board.getColorFromCell(new Cell(1,1));
+        Color blueColor = this.board.getColorFromCell(new Cell(4,1));
         Color greenColor = this.board.getColorFromCell(new Cell(1,3));
         assertEquals(blueColor, Color.BLUE);
         assertEquals(greenColor, Color.NULL);
@@ -105,7 +109,30 @@ class BoardTest {
     @Description("Check given a column index the next free row in the board")
     public void testGivenAColumnIndexIfTheNextFreeRowIndexMatches() {
         int nextFreeRow = this.board.getNextFreeRowByColumn(1);
-        assertEquals(nextFreeRow, 0);
+        assertEquals(nextFreeRow, 2);
+    }
+
+    // Tambien podriamos montar un builder para que la inicializacion del board este desacoplada de los propios metodos del board
+    @Test()
+    @Description("Check whether a token is added in the board, that token has been stored or not")
+    public void testWhenPutTokenBoardCellNumberIncreasedWithBuilder() {
+        this.board.reset();
+        List<Cell> player1Cells = Arrays.asList(
+                new Cell(4,1),
+                new Cell(4,2));
+        List<Cell> player2Cells = Arrays.asList(
+                new Cell(3,1),
+                new Cell(3,2));
+        Board board = this.boardBuilder.cells(
+                Map.ofEntries(
+                        entry(Color.BLUE, player1Cells),
+                        entry(Color.GREEN, player2Cells)
+                )
+        ).build();
+
+        board.putToken(new Cell(3,4), Color.BLUE);
+        int numberOfBlueCellsInBoard = board.getOccupiedCells() - 2;
+        assertTrue(numberOfBlueCellsInBoard == 3);
     }
 
 }

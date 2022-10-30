@@ -48,6 +48,4 @@ public class RegistryTest {
         this.registry.undo();
         assertTrue(this.registry.redoable());
     }
-
-
 }
