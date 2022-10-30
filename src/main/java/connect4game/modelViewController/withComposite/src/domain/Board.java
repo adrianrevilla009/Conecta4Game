@@ -112,10 +112,4 @@ public class Board {
         }
         return strings;
     }
-
-    // se supone que no hay que tocar el codigo de produccion. Pero en este caso, para meter celdas en un mapa y asociarselo al board
-    // necesito hacer un set. Podria hacerlo con putToken, pero estaría bien meter un metodo que va a ser probado en el beforeEach?
-    public void setCellMap(Map<Color, List<Cell>> cellMap) {
-        this.cellMap = cellMap;
-    }
 }

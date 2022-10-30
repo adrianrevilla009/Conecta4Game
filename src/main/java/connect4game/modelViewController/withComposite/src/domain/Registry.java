@@ -3,24 +3,24 @@ package main.java.connect4game.modelViewController.withComposite.src.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-class Registry {
+public class Registry {
 	
 	private List<Memento> mementos;
 	private Game game;
 	private int firstPrevious;
 	
-	Registry(Game game) {
+	public Registry(Game game) {
 		this.game = game;
 		this.reset();
 	}
 
-	void reset() {
+	public void reset() {
 		this.firstPrevious = 0;
 		this.mementos = new ArrayList<>();
 		this.mementos.add(this.firstPrevious, this.game.createMemento());
 	}
 
-	void register() {
+	public void register() {
 		for (int i = 0; i < this.firstPrevious; i++) {
 			this.mementos.remove(0);
 		}
@@ -28,25 +28,25 @@ class Registry {
 		this.mementos.add(this.firstPrevious, this.game.createMemento());
 	}
 
-	void undo() {
+	public void undo() {
 		assert this.undoable();
 
 		this.firstPrevious++;
 		this.game.setMemento(this.mementos.get(this.firstPrevious));
 	}
 
-	void redo() {
+	public void redo() {
 		assert this.redoable();
 
 		this.firstPrevious--;
 		this.game.setMemento(this.mementos.get(this.firstPrevious));
 	}
 
-	boolean undoable() {
+	public boolean undoable() {
 		return this.firstPrevious < this.mementos.size() - 1;
 	}
 
-	boolean redoable() {
+	public boolean redoable() {
 		return this.firstPrevious >= 1;
 	}
 

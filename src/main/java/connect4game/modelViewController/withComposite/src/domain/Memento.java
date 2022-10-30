@@ -19,10 +19,8 @@ class Memento {
         int colorsCount = 0;
         for (int i = 0; i < Cell.ROWS; i++) {
             for (int j = 0; j < Cell.COLUMNS; j++) {
-                try {
+                if (Color.getByName(this.boardColors.get(colorsCount)) != Color.NULL) {
                     board.putToken(new Cell(i, j), Color.getByName(this.boardColors.get(colorsCount)));
-                } catch (Exception e) {
-
                 }
                 colorsCount++;
             }

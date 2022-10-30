@@ -18,84 +18,60 @@ class BoardTest {
     @BeforeEach
     public void beforeEach() {
         this.board = new Board();
-        Map<Color, List<Cell>> cellMap = new HashMap<>();
-        cellMap.put(Color.BLUE, new ArrayList<>(Arrays.asList(new Cell(1, 1), new Cell(1, 2))));
-        cellMap.put(Color.GREEN, new ArrayList<>(Arrays.asList(new Cell(2, 1), new Cell(2, 2))));
-        this.board.setCellMap(cellMap);
+        this.board.putToken(new Cell(1,1), Color.BLUE);
+        this.board.putToken(new Cell(1,2), Color.BLUE);
+        this.board.putToken(new Cell(2,1), Color.GREEN);
+        this.board.putToken(new Cell(1,2), Color.GREEN);
     }
 
     @Test()
-    @Description("Check whether board map where cells are stored, is emptied of not")
-    public void testReset() {
-        // given
-        // when
+    @Description("Check whether board has occupied positions when it is reset or not")
+    public void testEmptyBoardWhenReset() {
         this.board.reset();
-        //then
         assertEquals(this.board.getOccupiedCells(), 0);
     }
 
     @Test()
-    @Description("Check whether a token is added in cellMap or not")
-    public void testPutToken() {
-        // given
-        // when
+    @Description("Check whether a token is added in the board, that token has been stored or not")
+    public void testWhenPutTokenBoardCellNumberIncreased() {
         this.board.putToken(new Cell(3,4), Color.BLUE);
-        //then
-        assertTrue(this.board.getOccupiedCells() == 3);
+        int numberOfBlueCellsInBoard = this.board.getOccupiedCells() - 2;
+        assertTrue(numberOfBlueCellsInBoard == 3);
     }
 
     @Test()
-    @Description("Check whether a cell is given return its color in the cellMap or not")
-    public void testGetColor() {
-        // given
-        // when
+    @Description("Check whether a cell is given return its color of the board or not")
+    public void testCorrectColorWhenGetColorFromACellInBoard() {
         Color color = this.board.getColor(new Cell(1,1));
-        //then
         assertEquals(color, Color.BLUE);
     }
 
     @Test()
-    @Description("Check whether a cell is already added in the cellMap or not")
-    public void testIsOccupied() {
-        // given
-        // when
-        Boolean isOccupied = this.board.isOccupied(new Cell(1,1), Color.BLUE);
-        Boolean isOccupied2 = this.board.isOccupied(new Cell(1,1), Color.GREEN);
-        Boolean isOccupied3 = this.board.isOccupied(new Cell(1,3), Color.BLUE);
-        //then
-        assertTrue(isOccupied);
-        assertFalse(isOccupied2);
-        assertFalse(isOccupied3);
+    @Description("Check given some i and j positions of the board, whether a cell of a color is already added in or not")
+    public void testGivenCoordinateAndColorIfBoardCellIsOccupied() {
+        assertTrue(this.board.isOccupied(new Cell(1,1), Color.BLUE));
+        assertFalse(this.board.isOccupied(new Cell(1,1), Color.GREEN));
+        assertFalse(this.board.isOccupied(new Cell(1,3), Color.BLUE));
     }
 
     @Test()
-    @Description("Check whether a cell is not added in the cellMap or it is")
-    public void testIsEmpty() {
-        // given
-        // when
-        Boolean isEmpty = this.board.isEmpty(new Cell(1,1));
-        Boolean isEmpty2 = this.board.isEmpty(new Cell(1,5));
-        //then
-        assertFalse(isEmpty);
-        assertTrue(isEmpty2);
+    @Description("Check given some i and j positions of the board, whether a cell is added or not")
+    public void testGivenACellIfBoardPositionIsEmpty() {
+        assertFalse(this.board.isEmpty(new Cell(1,1)));
+        assertTrue(this.board.isEmpty(new Cell(1,5)));
     }
 
     @Test()
-    @Description("Check whether any player has win the game or not")
-    public void testIsConnect4() {
-        // given
+    @Description("Check given some coordinates to make 4 in a row in the board, whether the algorithm identifies it as a win play")
+    public void testGiven4SameColorCellsIfIsConnect4() {
         this.board.putToken(new Cell(1,3), Color.BLUE);
         this.board.putToken(new Cell(1,4), Color.BLUE);
-        // when
-        Boolean isConnect4 = this.board.isConnect4(Color.BLUE);
-        //then
-        assertTrue(isConnect4);
+        assertTrue(this.board.isConnect4(Color.BLUE));
     }
 
     @Test()
-    @Description("Check whether is an equal game or not")
+    @Description("Check populating a board until its limit cell number, whether it is full or not")
     public void testIsFullBoard() {
-        // given
         this.board.reset();
         for (int i = 0; i < Cell.ROWS; i++) {
             for (int j = 0; j < Cell.COLUMNS; j++) {
@@ -106,68 +82,30 @@ class BoardTest {
                 }
             }
         }
-        // when
-        Boolean isFullBoard = this.board.isFullBoard();
-        //then
-        assertTrue(isFullBoard);
+        assertTrue(this.board.isFullBoard());
     }
 
     @Test()
-    @Description("Check number of already added cells into the cellMap")
-    public void testGetOccupiedCells() {
-        // given
-        // when
+    @Description("Check number of already added cells into the board")
+    public void testGetNumberOfTheAlreadyAddedCellsIntoTheBoard() {
         int numberOfOccupiedCells = this.board.getOccupiedCells();
-        //then
         assertEquals(numberOfOccupiedCells, 4);
     }
 
     @Test()
-    @Description("Check the color already added into a position of the cellMap")
-    public void testGetColorFromCell() {
-        // given
-        // when
-        Color colorIntoACell = this.board.getColorFromCell(new Cell(1,1));
-        Color colorIntoACell2 = this.board.getColorFromCell(new Cell(1,3));
-        //then
-        assertEquals(colorIntoACell, Color.BLUE);
-        assertEquals(colorIntoACell2, Color.NULL);
+    @Description("Check whether a given color matches in an already added cells into the board")
+    public void testGivenSomeCellCoordinatesIfTheReturnedColorMatches() {
+        Color blueColor = this.board.getColorFromCell(new Cell(1,1));
+        Color greenColor = this.board.getColorFromCell(new Cell(1,3));
+        assertEquals(blueColor, Color.BLUE);
+        assertEquals(greenColor, Color.NULL);
     }
 
     @Test()
-    @Description("Check given a column index the next free row in the cellMap")
-    public void testGetNextFreeRowByColumn() {
-        // given
-        // when
+    @Description("Check given a column index the next free row in the board")
+    public void testGivenAColumnIndexIfTheNextFreeRowIndexMatches() {
         int nextFreeRow = this.board.getNextFreeRowByColumn(1);
-        //then
         assertEquals(nextFreeRow, 0);
-        assertNotEquals(nextFreeRow, 3);
     }
-
-    @Test()
-    @Description("Check the conversion of the cellMap into a string list is correctly done")
-    public void testToCharacterArray() {
-        // given
-        List<String> testArray = new ArrayList<>();
-        for (int i = 0; i <= 7; i++) {
-            testArray.add("NULL");
-        }
-        testArray.add("BLUE");
-        testArray.add("BLUE");
-        for (int i = 0; i <= 4; i++) {
-            testArray.add("NULL");
-        }
-        testArray.add("GREEN");
-        testArray.add("GREEN");
-        for (int i = 0; i <= 17; i++) {
-            testArray.add("NULL");
-        }
-        // when
-        List<String> convertedArray = this.board.toCharacterArray();
-        //then
-        assertEquals(convertedArray, testArray);
-    }
-
 
 }
