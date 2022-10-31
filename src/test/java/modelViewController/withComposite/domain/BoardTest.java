@@ -135,27 +135,20 @@ class BoardTest {
         assertEquals(nextFreeRow, 2);
     }
 
-    // Tambien podriamos montar un builder para que la inicializacion del board este desacoplada de los propios metodos del board
     @Test()
     @Description("Check whether a token is added in the board, that token has been stored or not")
     public void testWhenPutTokenBoardCellNumberIncreasedWithBuilder() {
         this.board.reset();
-        List<Cell> player1Cells = Arrays.asList(
-                new Cell(4,1),
-                new Cell(4,2));
-        List<Cell> player2Cells = Arrays.asList(
-                new Cell(3,1),
-                new Cell(3,2));
-        Board board = this.boardBuilder.cells(
-                Map.ofEntries(
-                        entry(Color.BLUE, player1Cells),
-                        entry(Color.GREEN, player2Cells)
-                )
-        ).build();
+        Board board = this.boardBuilder
+                .cell(new Cell(4,1), Color.BLUE)
+                .cell(new Cell(4,2), Color.BLUE)
+                .cell(new Cell(3,1), Color.GREEN)
+                .cell(new Cell(3,2), Color.GREEN)
+                .build();
 
         board.putToken(new Cell(3,4), Color.BLUE);
         int numberOfBlueCellsInBoard = board.getOccupiedCells() - 2;
-        assertTrue(numberOfBlueCellsInBoard == 3);
+        assertThat(numberOfBlueCellsInBoard, is(3));
     }
 
 }

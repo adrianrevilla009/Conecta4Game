@@ -15,14 +15,6 @@ public class BoardBuilder {
         cellMap = new HashMap<>();
     }
 
-    public BoardBuilder cells(Map<Color, List<Cell>> cellMap) {
-        assert !cellMap.isEmpty();
-        assert cellMap.size() == 2;
-
-        this.cellMap = cellMap;
-        return this;
-    }
-
     public Board build() {
         Board board = new Board();
 
@@ -34,5 +26,13 @@ public class BoardBuilder {
         }
 
         return board;
+    }
+
+    public BoardBuilder cell(Cell cell, Color color) {
+        assert cell.isValid();
+        assert !color.isNull();
+
+        this.cellMap.get(color).add(cell);
+        return this;
     }
 }
