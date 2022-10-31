@@ -42,9 +42,16 @@ class BoardTest {
     public void testWhenPutTokenBoardCellNumberIncreased() {
         this.board.putToken(new Cell(3,4), Color.BLUE);
         int numberOfBlueCellsInBoard = this.board.getOccupiedCells() - 2;
-        assertTrue(numberOfBlueCellsInBoard == 3);
-        // trying to assert that
+        // trying to assert that (hamcrest)
         assertThat(numberOfBlueCellsInBoard, is(3));
+    }
+
+    @Test()
+    @Description("Check whether a token with NULL color is added in the board, the assert statement is triggered")
+    public void testWhenPutTokenWithNullColorAssertIsThrown() {
+        assertThrows(AssertionError.class, () -> {
+            this.board.putToken(new Cell(3,4), Color.NULL);
+        });
     }
 
     @Test()
@@ -70,11 +77,23 @@ class BoardTest {
     }
 
     @Test()
-    @Description("Check given some coordinates to make 4 in a row in the board, whether the algorithm identifies it as a win play")
+    @Description("Check given some coordinates to make 4 in a row in the board, whether the algorithm identifies it as a " +
+            "concrete color win play")
     public void testGiven4SameColorCellsIfIsConnect4() {
         this.board.putToken(new Cell(4,3), Color.BLUE);
         this.board.putToken(new Cell(4,4), Color.BLUE);
         assertTrue(this.board.isConnect4(Color.BLUE));
+    }
+
+    @Test()
+    @Description("Check given some coordinates to make 4 in a row in the board, an assert exception is triggered when" +
+            "NULL color is tested as a winner color")
+    public void testGiven4SameColorCellsNullWinColorAssertIsThrown() {
+        this.board.putToken(new Cell(4,3), Color.BLUE);
+        this.board.putToken(new Cell(4,4), Color.BLUE);
+        assertThrows(AssertionError.class, () -> {
+            this.board.isConnect4(Color.NULL);
+        });
     }
 
     @Test()
