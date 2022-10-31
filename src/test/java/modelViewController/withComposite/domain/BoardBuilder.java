@@ -4,6 +4,7 @@ import org.example.modelViewController.withComposite.domain.Board;
 import org.example.modelViewController.withComposite.domain.Cell;
 import org.example.modelViewController.withComposite.types.Color;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,6 +34,13 @@ public class BoardBuilder {
         assert !color.isNull();
 
         this.cellMap.get(color).add(cell);
+        return this;
+    }
+
+    public BoardBuilder player(Color color) {
+        assert !color.isNull();
+
+        this.cellMap.put(color, new ArrayList<>());
         return this;
     }
 }

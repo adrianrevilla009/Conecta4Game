@@ -7,9 +7,6 @@ import org.example.modelViewController.withComposite.types.Color;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.*;
-
-import static java.util.Map.entry;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
@@ -21,13 +18,15 @@ class BoardTest {
 
     @BeforeEach
     public void beforeEach() {
-        this.board = new Board();
-        this.board.putToken(new Cell(4,1), Color.BLUE);
-        this.board.putToken(new Cell(4,2), Color.BLUE);
-        this.board.putToken(new Cell(3,1), Color.GREEN);
-        this.board.putToken(new Cell(3,2), Color.GREEN);
-        // with builder
         this.boardBuilder = new BoardBuilder();
+        this.board = this.boardBuilder
+                .player(Color.BLUE)
+                .player(Color.GREEN)
+                .cell(new Cell(4,1), Color.BLUE)
+                .cell(new Cell(4,2), Color.BLUE)
+                .cell(new Cell(3,1), Color.GREEN)
+                .cell(new Cell(3,2), Color.GREEN)
+                .build();
     }
 
     @Test()
@@ -40,7 +39,9 @@ class BoardTest {
     @Test()
     @Description("Check whether a token is added in the board, that token has been stored or not")
     public void testWhenPutTokenBoardCellNumberIncreased() {
-        this.board.putToken(new Cell(3,4), Color.BLUE);
+        this.board = this.boardBuilder
+                .cell(new Cell(3,4), Color.BLUE)
+                .build();
         int numberOfBlueCellsInBoard = this.board.getOccupiedCells() - 2;
         // trying to assert that (hamcrest)
         assertThat(numberOfBlueCellsInBoard, is(3));
@@ -80,8 +81,10 @@ class BoardTest {
     @Description("Check given some coordinates to make 4 in a row in the board, whether the algorithm identifies it as a " +
             "concrete color win play")
     public void testGiven4SameColorCellsIfIsConnect4() {
-        this.board.putToken(new Cell(4,3), Color.BLUE);
-        this.board.putToken(new Cell(4,4), Color.BLUE);
+        this.board = this.boardBuilder
+                .cell(new Cell(4,3), Color.BLUE)
+                .cell(new Cell(4,4), Color.BLUE)
+                .build();
         assertTrue(this.board.isConnect4(Color.BLUE));
     }
 
@@ -89,8 +92,10 @@ class BoardTest {
     @Description("Check given some coordinates to make 4 in a row in the board, an assert exception is triggered when" +
             "NULL color is tested as a winner color")
     public void testGiven4SameColorCellsNullWinColorAssertIsThrown() {
-        this.board.putToken(new Cell(4,3), Color.BLUE);
-        this.board.putToken(new Cell(4,4), Color.BLUE);
+        this.board = this.boardBuilder
+                .cell(new Cell(4,3), Color.BLUE)
+                .cell(new Cell(4,4), Color.BLUE)
+                .build();
         assertThrows(AssertionError.class, () -> {
             this.board.isConnect4(Color.NULL);
         });
@@ -103,8 +108,14 @@ class BoardTest {
         for (int i = 0; i < Cell.ROWS; i++) {
             for (int j = 0; j < Cell.COLUMNS; j++) {
                 if (i % 2 == 0) {
+                    /*this.board = this.boardBuilder
+                            .cell(new Cell(i,j), Color.BLUE)
+                            .build();*/
                     this.board.putToken(new Cell(i,j), Color.BLUE);
                 } else {
+                    /*this.board = this.boardBuilder
+                            .cell(new Cell(i,j), Color.GREEN)
+                            .build();*/
                     this.board.putToken(new Cell(i,j), Color.GREEN);
                 }
             }
@@ -133,22 +144,6 @@ class BoardTest {
     public void testGivenAColumnIndexIfTheNextFreeRowIndexMatches() {
         int nextFreeRow = this.board.getNextFreeRowByColumn(1);
         assertEquals(nextFreeRow, 2);
-    }
-
-    @Test()
-    @Description("Check whether a token is added in the board, that token has been stored or not")
-    public void testWhenPutTokenBoardCellNumberIncreasedWithBuilder() {
-        this.board.reset();
-        Board board = this.boardBuilder
-                .cell(new Cell(4,1), Color.BLUE)
-                .cell(new Cell(4,2), Color.BLUE)
-                .cell(new Cell(3,1), Color.GREEN)
-                .cell(new Cell(3,2), Color.GREEN)
-                .build();
-
-        board.putToken(new Cell(3,4), Color.BLUE);
-        int numberOfBlueCellsInBoard = board.getOccupiedCells() - 2;
-        assertThat(numberOfBlueCellsInBoard, is(3));
     }
 
 }
