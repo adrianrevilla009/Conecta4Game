@@ -1,7 +1,14 @@
 package org.example.basic.domain;
 
+<<<<<<< Updated upstream:src/main/java/org/example/basic/domain/Board.java
 import org.example.basic.utils.Console;
 import org.example.basic.utils.Connect4Algorithm;
+=======
+import main.java.connect4game.domainModel.domain.algorithm.Column;
+import main.java.connect4game.domainModel.domain.algorithm.Row;
+import main.java.connect4game.domainModel.utils.Connect4Algorithm;
+import main.java.connect4game.domainModel.utils.Console;
+>>>>>>> Stashed changes:src/main/java/connect4game/domainModel/domain/Board.java
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,10 +20,14 @@ public class Board {
 
     private Connect4Algorithm connect4Algorithm;
 
+    private List<Column> columnList;
+    private List<Row> rowList;
+
     Board() {
         cellMap = new HashMap<>();
         this.reset();
         connect4Algorithm = new Connect4Algorithm(this);
+        this.initializeBoard();
     }
 
     void reset() {
@@ -27,10 +38,23 @@ public class Board {
         });
     }
 
+    void initializeBoard() {
+        this.columnList = new ArrayList<>();
+        for (int i = 0; i < Cell.COLUMNS; i++) {
+            this.columnList.add(new Column());
+        }
+        this.rowList = new ArrayList<>();
+        for (int i = 0; i < Cell.ROWS; i++) {
+            this.rowList.add(new Row());
+        }
+    }
+
     void putToken(Cell cell, Color color) {
         assert !color.isNull();
 
         cellMap.get(color).add(cell);
+        columnList.get(cell.getColumn()).addCell(cell);
+        rowList.get(cell.getRow()).addCell(cell);
     }
 
     public Color getColor(Cell cell) {
@@ -94,5 +118,13 @@ public class Board {
         nextValue -= 1;
 
         return nextValue;
+    }
+
+    public List<Column> getColumnList() {
+        return columnList;
+    }
+
+    public List<Row> getRowList() {
+        return rowList;
     }
 }
