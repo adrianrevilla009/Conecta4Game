@@ -1,14 +1,7 @@
 package org.example.basic.domain;
 
-<<<<<<< Updated upstream:src/main/java/org/example/basic/domain/Board.java
 import org.example.basic.utils.Console;
 import org.example.basic.utils.Connect4Algorithm;
-=======
-import main.java.connect4game.domainModel.domain.algorithm.Column;
-import main.java.connect4game.domainModel.domain.algorithm.Row;
-import main.java.connect4game.domainModel.utils.Connect4Algorithm;
-import main.java.connect4game.domainModel.utils.Console;
->>>>>>> Stashed changes:src/main/java/connect4game/domainModel/domain/Board.java
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,6 +15,7 @@ public class Board {
 
     private List<Column> columnList;
     private List<Row> rowList;
+    private List<Diagonal> diagonalList;
 
     Board() {
         cellMap = new HashMap<>();
@@ -47,6 +41,10 @@ public class Board {
         for (int i = 0; i < Cell.ROWS; i++) {
             this.rowList.add(new Row());
         }
+        this.diagonalList = new ArrayList<>();
+        for (int i = 0; i < 10; i++) { // 10 diagonals counted for this board size
+            this.diagonalList.add(new Diagonal());
+        }
     }
 
     void putToken(Cell cell, Color color) {
@@ -55,6 +53,8 @@ public class Board {
         cellMap.get(color).add(cell);
         columnList.get(cell.getColumn()).addCell(cell);
         rowList.get(cell.getRow()).addCell(cell);
+        // TODO el problema esta aqui
+        // cuando hago un put como se en que diagonal de la lista corresponde para meter la ficha
     }
 
     public Color getColor(Cell cell) {
@@ -126,5 +126,9 @@ public class Board {
 
     public List<Row> getRowList() {
         return rowList;
+    }
+
+    public List<Diagonal> getDiagonalList() {
+        return diagonalList;
     }
 }

@@ -1,6 +1,4 @@
-package main.java.connect4game.domainModel.domain.algorithm;
-
-import main.java.connect4game.domainModel.domain.Cell;
+package org.example.basic.domain;
 
 import java.util.ArrayList;
 import java.util.List;

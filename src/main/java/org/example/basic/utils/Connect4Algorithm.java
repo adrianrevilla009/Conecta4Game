@@ -1,18 +1,8 @@
 package org.example.basic.utils;
 
-<<<<<<< Updated upstream:src/main/java/org/example/basic/utils/Connect4Algorithm.java
-import org.example.basic.domain.Board;
-import org.example.basic.domain.Cell;
-import org.example.basic.domain.Color;
-=======
-import main.java.connect4game.domainModel.domain.Board;
-import main.java.connect4game.domainModel.domain.Cell;
-import main.java.connect4game.domainModel.domain.Color;
-import main.java.connect4game.domainModel.domain.algorithm.Column;
-import main.java.connect4game.domainModel.domain.algorithm.Row;
+import org.example.basic.domain.*;
 
 import java.util.List;
->>>>>>> Stashed changes:src/main/java/connect4game/domainModel/utils/Connect4Algorithm.java
 
 public class Connect4Algorithm {
     private Board board;
@@ -23,8 +13,10 @@ public class Connect4Algorithm {
 
     // diagonals algorithm took from : https://stackoverflow.com/questions/32770321/connect-4-check-for-a-win-algorithm
     public boolean isConnect4(Color color) {
+        /*return isConnect4Horizontally(color) || isConnect4Vertically(color) ||
+                isConnect4DownDiagonally(color) || isConnect4UpDiagonally(color);*/
         return isConnect4Horizontally(color) || isConnect4Vertically(color) ||
-                isConnect4DownDiagonally(color) || isConnect4UpDiagonally(color);
+                isConnect4Diagonally(color);
     }
 
     // horizontal check
@@ -96,7 +88,7 @@ public class Connect4Algorithm {
     }
 
     // top-left to bottom-right down half quadrant check
-    private boolean isConnect4DownDiagonally(Color color) {
+    /*private boolean isConnect4DownDiagonally(Color color) {
         for (int i = 0; i < Cell.ROWS - 4; i++) {
             int count = 0;
             for (int j = 0; i < Cell.ROWS && j < Cell.COLUMNS; i++, j++) {
@@ -111,10 +103,10 @@ public class Connect4Algorithm {
             }
         }
         return false;
-    }
+    }*/
 
     // top-left to bottom-right up half quadrant check
-    private boolean isConnect4UpDiagonally(Color color) {
+    /*private boolean isConnect4UpDiagonally(Color color) {
         for (int j = 1; j < Cell.COLUMNS - 4; j++) {
             int count = 0;
             for (int i = 0; i < Cell.ROWS && j < Cell.COLUMNS; i++, j++) {
@@ -126,6 +118,24 @@ public class Connect4Algorithm {
                 } else {
                     count = 0;
                 }
+            }
+        }
+        return false;
+    }*/
+
+    private boolean isConnect4Diagonally(Color color) {
+        for (Diagonal diagonal : this.board.getDiagonalList()) {
+            List<Cell> cellList = diagonal.getCellList();
+            int count = 0;
+            for (Cell cell : cellList) {
+                if (this.board.getColor(cell) == color) {
+                    count++;
+                } else {
+                    count = 0;
+                }
+            }
+            if (count == 4) {
+                return true;
             }
         }
         return false;
