@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="modelViewController.withComposite.domain.BoardTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2022-10-31T09:46:17" hostname="ADRIAN" time="0.052">
+  <properties/>
+  <testcase name="testGivenACellIfBoardPositionIsEmpty()" classname="modelViewController.withComposite.domain.BoardTest" time="0.031"/>
+  <testcase name="testWhenPutTokenBoardCellNumberIncreasedWithBuilder()" classname="modelViewController.withComposite.domain.BoardTest" time="0.001"/>
+  <testcase name="testGivenCoordinateAndColorIfBoardCellIsOccupied()" classname="modelViewController.withComposite.domain.BoardTest" time="0.001"/>
+  <testcase name="testIsFullBoard()" classname="modelViewController.withComposite.domain.BoardTest" time="0.001"/>
+  <testcase name="testCorrectColorWhenGetColorFromACellInBoard()" classname="modelViewController.withComposite.domain.BoardTest" time="0.002"/>
+  <testcase name="testEmptyBoardWhenReset()" classname="modelViewController.withComposite.domain.BoardTest" time="0.0"/>
+  <testcase name="testGetNumberOfTheAlreadyAddedCellsIntoTheBoard()" classname="modelViewController.withComposite.domain.BoardTest" time="0.001"/>
+  <testcase name="testGivenAColumnIndexIfTheNextFreeRowIndexMatches()" classname="modelViewController.withComposite.domain.BoardTest" time="0.001"/>
+  <testcase name="testGivenSomeCellCoordinatesIfTheReturnedColorMatches()" classname="modelViewController.withComposite.domain.BoardTest" time="0.001"/>
+  <testcase name="testGiven4SameColorCellsIfIsConnect4()" classname="modelViewController.withComposite.domain.BoardTest" time="0.001"/>
+  <testcase name="testWhenPutTokenBoardCellNumberIncreased()" classname="modelViewController.withComposite.domain.BoardTest" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
