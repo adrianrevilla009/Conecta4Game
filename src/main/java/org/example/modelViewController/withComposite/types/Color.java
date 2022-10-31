@@ -23,6 +23,7 @@ public enum Color {
         return this == Color.NULL;
     }
 
+    // TODO este metodo igual se puede quitar
     public static List<Color> getAll() {
         List<Color> colors = new ArrayList<>(Arrays.asList(Color.values()));
         colors.remove(Color.NULL);
