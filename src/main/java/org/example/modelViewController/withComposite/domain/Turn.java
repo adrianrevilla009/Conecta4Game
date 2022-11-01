@@ -12,7 +12,7 @@ public class Turn {
     private List<Player> players;
     private int activePlayer;
 
-    Turn(Board board) {
+    public Turn(Board board) {
         assert board != null;
         this.board = board;
         this.players = new ArrayList<>(NUMBER_PLAYERS);
