@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="modelViewController.withComposite.utils.ConsoleTest" tests="3" skipped="1" failures="0" errors="0" timestamp="2022-11-05T09:59:39" hostname="ADRIAN" time="1.213">
+  <properties/>
+  <testcase name="testReadFromConsoleIntValueWhichIsExcepted()" classname="modelViewController.withComposite.utils.ConsoleTest" time="1.185"/>
+  <testcase name="testReadFromConsoleStringValueWhichIsExcepted()" classname="modelViewController.withComposite.utils.ConsoleTest" time="0.01"/>
+  <testcase name="testReadFromConsoleValueWhichIsNotIntAndThrowsException()" classname="modelViewController.withComposite.utils.ConsoleTest" time="0.001">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[2Read str]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
