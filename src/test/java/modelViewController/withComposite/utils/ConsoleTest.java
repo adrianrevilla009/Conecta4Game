@@ -32,9 +32,6 @@ public class ConsoleTest {
     @BeforeEach
     public void beforeEach() {
         MockitoAnnotations.openMocks(this);
-        // TODO why this is not working?
-        // this.console = mock(Console.class);
-        // this.bufferedReader = mock(BufferedReader.class);
     }
 
     @Test()
@@ -55,9 +52,10 @@ public class ConsoleTest {
 
     @Test()
     @Description("Check if a value read from console is not int, and throws an exception")
-    @Disabled // This test is disabled because the output never stops
+    @Disabled // TODO why is not capturing the exception if its being thrown?
     public void testReadFromConsoleValueWhichIsNotIntAndThrowsException() throws IOException {
         when(this.bufferedReader.readLine()).thenReturn("@");
-        assertThrows(AssertionError.class, () -> this.console.readInt("Give me an int"));
+        // when(this.console.readString("")).thenReturn("1");
+        assertThrows(NumberFormatException.class, () -> this.console.readInt("Give me an int"));
     }
 }

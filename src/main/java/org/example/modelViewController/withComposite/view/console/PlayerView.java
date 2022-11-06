@@ -29,7 +29,7 @@ public class PlayerView {
         this.playController.putToken(cell);
     }
 
-    Cell getCell(Message message) {
+    public Cell getCell(Message message) {
         assert message != null;
 
         Cell cell = new CellView().read(message.toString());
@@ -37,7 +37,7 @@ public class PlayerView {
         return cell;
     }
 
-    private Error getPutTokenError(Cell cell) {
+    public Error getPutTokenError(Cell cell) {
         assert cell != null;
 
         Error error = this.playController.getPutTokenError(cell);
