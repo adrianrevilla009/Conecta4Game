@@ -67,7 +67,7 @@ public class Board {
         return total == Cell.getNumberCells();
     }
 
-    int getOccupiedCells() {
+    public int getOccupiedCells() {
         int total = 0;
         for (Map.Entry<Color, List<Cell>> entry : cellMap.entrySet()) {
             total += entry.getValue().size();

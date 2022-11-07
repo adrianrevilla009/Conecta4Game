@@ -2,14 +2,12 @@ package modelViewController.withComposite.views;
 
 import jdk.jfr.Description;
 import org.example.modelViewController.withComposite.controller.PlayController;
-import org.example.modelViewController.withComposite.controller.actions.PlayActionController;
 import org.example.modelViewController.withComposite.domain.Cell;
 import org.example.modelViewController.withComposite.types.Error;
 import org.example.modelViewController.withComposite.types.Message;
 import org.example.modelViewController.withComposite.utils.Console;
 import org.example.modelViewController.withComposite.view.console.PlayerView;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;

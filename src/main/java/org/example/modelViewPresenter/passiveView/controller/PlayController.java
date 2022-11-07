@@ -33,7 +33,7 @@ public class PlayController extends Controller {
         this.game.putToken(cell);
     }
 
-    Cell getCell(Message message) {
+    public Cell getCell(Message message) {
         assert message != null;
 
         Cell cell = this.viewFactory.createCellView().read(message.toString());
