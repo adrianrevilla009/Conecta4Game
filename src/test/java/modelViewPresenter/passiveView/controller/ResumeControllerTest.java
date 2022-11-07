@@ -5,10 +5,12 @@ import org.example.modelViewPresenter.passiveView.controller.ResumeController;
 import org.example.modelViewPresenter.passiveView.domain.Game;
 import org.example.modelViewPresenter.passiveView.view.ViewFactory;
 import org.example.modelViewPresenter.passiveView.view.console.ResumeView;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -26,6 +28,11 @@ public class ResumeControllerTest {
     private ViewFactory viewFactory;
     @Mock
     private Game game;
+
+    @BeforeEach
+    void setUp() {
+        MockitoAnnotations.openMocks(this);
+    }
 
     @Test
     @Description("Given a resume view (doc) read return false method, check if resume controller (sut) return false as well")
