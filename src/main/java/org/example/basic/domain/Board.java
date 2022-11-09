@@ -31,7 +31,7 @@ public class Board {
 		assert !color.isNull();
 
 		cellMap.get(color).add(cell);
-		this.lastDrop = new Cell(0, cell.getColumn());
+		this.lastDrop = cell;
 	}
 
 	public Color getColor(Cell cell) {
@@ -75,7 +75,7 @@ public class Board {
 			if (!cells[i].isValid()) {
 				return false;
 			}
-			if (i > 0 && this.getColor(cells[i - 1]) != this.getColor(cells[i])) {
+			if (i + 1 < Line.LENGTH && this.getColor(cells[i]) != this.getColor(cells[i + 1])) {
 				return false;
 			}
 		}
