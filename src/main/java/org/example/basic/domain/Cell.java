@@ -8,6 +8,8 @@ public class Cell {
 
     public static int ROWS = 5;
     public static int COLUMNS = 7;
+    
+    public static Cell origin = new Cell(0,0);
 
     public Cell(int row, int column) {
         this.row = row;
@@ -50,6 +52,9 @@ public class Cell {
         return console.readInt("Columns: ") - 1;
     }
 
+	public Cell shifted(Cell Cell) {
+		return new Cell (this.row + Cell.row, this.column + Cell.column);
+	}
     public boolean isValid() {
         return this.column >= 0 && this.column < Cell.COLUMNS;
     }

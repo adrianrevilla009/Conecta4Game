@@ -32,7 +32,7 @@ public class Connect4Game {
     }
 
     private boolean isConnect4() {
-        return this.board.isConnect4(this.turn.getActiveColor());
+    	return this.board.isWinner();
     }
 
     private boolean isEqualGame() {
