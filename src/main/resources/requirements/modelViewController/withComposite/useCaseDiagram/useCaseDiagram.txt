@@ -1,0 +1,8 @@
+@startuml
+:Player: --> (Start)
+:Player: --> (Play)
+:Player: --> (Undo)
+:Player: --> (Redo)
+:Player: --> (Resume)
+
+@enduml

@@ -1,0 +1,130 @@
+--- CONNECT 4 GAME ---
+---------------
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+---------------
+
+----- Choose one option -----
+1) Do a action
+1
+Columns: 1
+---------------
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ | GREEN |   |   |   |   |   |   |
+---------------
+
+----- Choose one option -----
+1) Do a action
+2) Undo previous action
+1
+Columns: 1
+---------------
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ | BLUE |   |   |   |   |   |   |
+ | GREEN |   |   |   |   |   |   |
+---------------
+
+----- Choose one option -----
+1) Do a action
+2) Undo previous action
+2
+---------------
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ | GREEN |   |   |   |   |   |   |
+---------------
+
+----- Choose one option -----
+1) Do a action
+2) Undo previous action
+3) Redo previous action
+3
+---------------
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ | BLUE |   |   |   |   |   |   |
+ | GREEN |   |   |   |   |   |   |
+---------------
+
+----- Choose one option -----
+1) Do a action
+2) Undo previous action
+
+
+----- Choose one option -----
+1) Do a action
+2) Undo previous action
+1
+Columns: 2
+---------------
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ | BLUE |   |   |   |   |   |   |
+ | GREEN | GREEN |   |   |   |   |   |
+---------------
+
+----- Choose one option -----
+1) Do a action
+2) Undo previous action
+1
+Columns: 2
+---------------
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ | BLUE | BLUE |   |   |   |   |   |
+ | GREEN | GREEN |   |   |   |   |   |
+---------------
+
+----- Choose one option -----
+1) Do a action
+2) Undo previous action
+1
+Columns: 3
+---------------
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ | BLUE | BLUE |   |   |   |   |   |
+ | GREEN | GREEN | GREEN |   |   |   |   |
+---------------
+
+----- Choose one option -----
+1) Do a action
+2) Undo previous action
+1
+Columns: 3
+---------------
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ | BLUE | BLUE | BLUE |   |   |   |   |
+ | GREEN | GREEN | GREEN |   |   |   |   |
+---------------
+
+----- Choose one option -----
+1) Do a action
+2) Undo previous action
+1
+Columns: 4
+---------------
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ | BLUE | BLUE | BLUE |   |   |   |   |
+ | GREEN | GREEN | GREEN | GREEN |   |   |   |
+---------------
+GREEN player: You win!!! :-)
+Do you want to continue? (y/n): 

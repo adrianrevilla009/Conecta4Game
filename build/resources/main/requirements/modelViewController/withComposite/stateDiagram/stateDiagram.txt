@@ -1,0 +1,22 @@
+@startuml
+[*] --> Starting
+Starting -> Playing : start
+
+state c1 <<choice>>
+
+Playing --> c1 : undo
+Playing --> c1 : play
+Playing --> c1 : redo
+c1 --> Playing : redo
+
+c1 --> Resumed : win or equalty
+
+state c2 <<choice>>
+
+Resumed --> c2 : resume
+c2 --> Starting : continue
+c2 --> Exited : finish
+
+Exited --> [*]
+
+@enduml
