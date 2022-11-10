@@ -1,0 +1,27 @@
+@startuml
+enum Color
+Connect4Game *-down-> "2" Player
+Connect4Game *-down-> "4+3..*" Turn
+Connect4Game *-down-> Board
+Connect4Game *-down-> InitialDraw
+Turn *-right-> Player
+Player *-down-> Color
+Chip *-down-> Color
+Player -right-> Board
+Board *-down-> "7x5" Cell
+Board *-down-> "7" Column
+Board *-down-> "5" Row
+Board *-down-> "10" Diagonal
+Column *-down-> "5" Cell
+Row *-down-> "7" Cell
+Diagonal *-down-> "4..5" Cell
+Turn *-down-> Movement
+Movement *-down-> Chip
+Player .down.> Movement
+Player .down.> InitialDraw
+Cell o-down-> "0..1" Chip
+Cell *-down-> Coordinate
+Player *-down-> "4..21" Chip
+Movement <|-down- WinMovement
+Movement <|-down- EqualityMovement
+@enduml
