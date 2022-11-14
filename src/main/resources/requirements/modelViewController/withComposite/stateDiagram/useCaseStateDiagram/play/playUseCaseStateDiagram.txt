@@ -1,0 +1,27 @@
+@startuml
+[*] -down-> IN_GAME
+state c1 <<choice>>
+state c2 <<choice>>
+
+IN_GAME -down-> c1 : start playing action
+
+c1 -down-> s1 : is not game finished
+c1 -down-> s2 : is game finished
+
+s1 -down-> c2 : introduce column
+c2 -down-> s3 : column is valid
+c2 -down-> s4 : column is not valid
+s4 -down-> s5 : display column error
+note left of s5 : wrong column\nfull column
+s5 -up-> s1 : repeat action
+s3 -down-> s6 : display board
+s6 -down-> s7 : request action
+note left of s7 : play\nundo\nredo
+
+s2 -down-> s8 : display board
+s8 -down-> s9 : write winner message
+s9 -down-> RESUME : resume game
+
+s7 --> [*]
+
+@enduml

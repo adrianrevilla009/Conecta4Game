@@ -1,33 +1,35 @@
---- TIC TAC TOE ---
+--- CONNECT 4 GAME ---
 ---------------
- |   |   |   |
- |   |   |   |
- |   |   |   |
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
 ---------------
 
 ----- Choose one option -----
 1) Do a action
 1
-Enter a coordinate to put a token:
-Row: 1
-Column: 1
+Columns: 1
 ---------------
- | X |   |   |
- |   |   |   |
- |   |   |   |
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ | GREEN |   |   |   |   |   |   |
 ---------------
 
 ----- Choose one option -----
 1) Do a action
 2) Undo previous action
 1
-Enter a coordinate to put a token:
-Row: 2
-Column: 1
+Columns: 1
 ---------------
- | X |   |   |
- | O |   |   |
- |   |   |   |
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ | BLUE |   |   |   |   |   |   |
+ | GREEN |   |   |   |   |   |   |
 ---------------
 
 ----- Choose one option -----
@@ -35,9 +37,11 @@ Column: 1
 2) Undo previous action
 2
 ---------------
- | X |   |   |
- |   |   |   |
- |   |   |   |
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ | GREEN |   |   |   |   |   |   |
 ---------------
 
 ----- Choose one option -----
@@ -46,48 +50,81 @@ Column: 1
 3) Redo previous action
 3
 ---------------
- | X |   |   |
- | O |   |   |
- |   |   |   |
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ | BLUE |   |   |   |   |   |   |
+ | GREEN |   |   |   |   |   |   |
+---------------
+
+----- Choose one option -----
+1) Do a action
+2) Undo previous action
+
+
+----- Choose one option -----
+1) Do a action
+2) Undo previous action
+1
+Columns: 2
+---------------
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ | BLUE |   |   |   |   |   |   |
+ | GREEN | GREEN |   |   |   |   |   |
 ---------------
 
 ----- Choose one option -----
 1) Do a action
 2) Undo previous action
 1
-Enter a coordinate to put a token:
-Row: 1
-Column: 2
+Columns: 2
 ---------------
- | X | X |   |
- | O |   |   |
- |   |   |   |
----------------
-
------ Choose one option -----
-1) Do a action
-2) Undo previous action
-1
-Enter a coordinate to put a token:
-Row: 2
-Column: 2
----------------
- | X | X |   |
- | O | O |   |
- |   |   |   |
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ | BLUE | BLUE |   |   |   |   |   |
+ | GREEN | GREEN |   |   |   |   |   |
 ---------------
 
 ----- Choose one option -----
 1) Do a action
 2) Undo previous action
 1
-Enter a coordinate to put a token:
-Row: 1
-Column: 3
+Columns: 3
 ---------------
- | X | X | X |
- | O | O |   |
- |   |   |   |
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ | BLUE | BLUE |   |   |   |   |   |
+ | GREEN | GREEN | GREEN |   |   |   |   |
 ---------------
-X player: You win!!! :-)
-Do you want to continue? (y/n):
+
+----- Choose one option -----
+1) Do a action
+2) Undo previous action
+1
+Columns: 3
+---------------
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ | BLUE | BLUE | BLUE |   |   |   |   |
+ | GREEN | GREEN | GREEN |   |   |   |   |
+---------------
+
+----- Choose one option -----
+1) Do a action
+2) Undo previous action
+1
+Columns: 4
+---------------
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ |   |   |   |   |   |   |   |
+ | BLUE | BLUE | BLUE |   |   |   |   |
+ | GREEN | GREEN | GREEN | GREEN |   |   |   |
+---------------
+GREEN player: You win!!! :-)
+Do you want to continue? (y/n): 

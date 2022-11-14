@@ -1,22 +1,22 @@
 @startuml
-[*] --> Starting
-Starting -> Playing : start
+[*] --> INITIAL
+INITIAL -> IN_GAME : start
 
 state c1 <<choice>>
 
-Playing --> c1 : undo
-Playing --> c1 : play
-Playing --> c1 : redo
-c1 --> Playing : redo
+IN_GAME --> c1 : undo
+IN_GAME --> c1 : play
+IN_GAME --> c1 : redo
+c1 --> IN_GAME : redo
 
-c1 --> Resumed : win or equalty
+c1 --> RESUME : win or equalty
 
 state c2 <<choice>>
 
-Resumed --> c2 : resume
-c2 --> Starting : continue
-c2 --> Exited : finish
+RESUME --> c2 : resume
+c2 --> INITIAL : continue
+c2 --> EXIT : finish
 
-Exited --> [*]
+EXIT --> [*]
 
 @enduml

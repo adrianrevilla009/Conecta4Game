@@ -1,0 +1,8 @@
+@startuml
+[*] -down-> INITIAL
+INITIAL -down-> s1 : start game show message
+s1 -down-> s2 : show empty board
+s2 -down-> IN_GAME : change state
+IN_GAME -down-> [*]
+
+@enduml

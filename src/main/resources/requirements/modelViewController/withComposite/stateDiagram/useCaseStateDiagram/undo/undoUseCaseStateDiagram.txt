@@ -1,0 +1,15 @@
+@startuml
+[*] -down-> IN_GAME
+state c1 <<choice>>
+
+IN_GAME -down-> c1 : start undo action
+
+c1 -down-> s1 : is not undoable
+c1 -down-> s2 : is undoable
+s2 -down-> s3 : undo action
+s1 -down-> s4 : write board
+s3 -down-> s4 : write board
+
+s4 --> [*]
+
+@enduml

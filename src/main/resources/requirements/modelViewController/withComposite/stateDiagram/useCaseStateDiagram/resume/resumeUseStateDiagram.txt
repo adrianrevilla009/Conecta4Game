@@ -1,0 +1,14 @@
+@startuml
+[*] -down-> IN_GAME
+state c1 <<choice>>
+
+IN_GAME -down-> s1 : start resume action
+
+s1 -down-> c1 : write resume message
+c1 -down-> INITIAL : play again
+c1 -down-> EXIT : end game
+
+INITIAL --> [*]
+EXIT --> [*]
+
+@enduml
