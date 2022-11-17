@@ -5,10 +5,12 @@ import org.example.modelViewPresenter.refactorToPassiveView.controller.ResumeCon
 import org.example.modelViewPresenter.refactorToPassiveView.controller.StartController;
 import org.example.modelViewPresenter.refactorToPassiveView.domain.Game;
 import org.example.modelViewPresenter.refactorToPassiveView.view.View;
+import org.example.modelViewPresenter.refactorToPassiveView.view.ViewFactory;
 
 public abstract class Connect4Game {
     private Game game;
     private View view;
+    private ViewFactory viewFactory;
 
     public StartController startController;
     public PlayController playController;
@@ -20,10 +22,11 @@ public abstract class Connect4Game {
         this.playController = new PlayController(this.game);
         this.resumeController = new ResumeController(this.game);
         this.view = this.createView();
+        this.viewFactory = this.createViewFactory();
     }
 
     public abstract View createView();
-
+    public abstract ViewFactory createViewFactory();
     public void play() {
         do {
             this.view.start();
