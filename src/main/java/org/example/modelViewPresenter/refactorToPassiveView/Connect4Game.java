@@ -12,15 +12,15 @@ public abstract class Connect4Game {
     private View view;
     private ViewFactory viewFactory;
 
-    public StartController startController;
-    public PlayController playController;
-    public ResumeController resumeController;
+    public static StartController startController;
+    public static PlayController playController;
+    public static ResumeController resumeController;
 
     public Connect4Game() {
         this.game = new Game();
-        this.startController = new StartController(this.game);
-        this.playController = new PlayController(this.game);
-        this.resumeController = new ResumeController(this.game);
+        startController = new StartController(this.game);
+        playController = new PlayController(this.game);
+        resumeController = new ResumeController(this.game);
         this.view = this.createView();
         this.viewFactory = this.createViewFactory();
     }

@@ -1,6 +1,6 @@
 package org.example.modelViewPresenter.refactorToPassiveView.view;
 
-import org.example.modelViewPresenter.passiveView.view.console.*;
+import org.example.modelViewPresenter.refactorToPassiveView.view.console.*;
 
 public abstract class ViewFactory {
     public abstract BoardView createBoardView();
