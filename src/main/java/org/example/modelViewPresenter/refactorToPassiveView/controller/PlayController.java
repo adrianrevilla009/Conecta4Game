@@ -1,13 +1,14 @@
 package org.example.modelViewPresenter.refactorToPassiveView.controller;
 
-import org.example.modelViewPresenter.refactorToPassiveView.domain.Cell;
 import org.example.modelViewPresenter.refactorToPassiveView.domain.Game;
+import org.example.modelViewPresenter.refactorToPassiveView.view.ViewFactory;
+import org.example.modelViewPresenter.refactorToPassiveView.domain.Cell;
 import org.example.modelViewPresenter.refactorToPassiveView.types.Color;
 import org.example.modelViewPresenter.refactorToPassiveView.types.Error;
 
 public class PlayController extends Controller {
-    public PlayController(Game game) {
-        super(game);
+    public PlayController(Game game, ViewFactory viewFactory) {
+        super(game, viewFactory);
     }
 
     public boolean isConnect4() {

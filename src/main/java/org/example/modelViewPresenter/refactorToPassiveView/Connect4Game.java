@@ -18,9 +18,9 @@ public abstract class Connect4Game {
 
     public Connect4Game() {
         this.game = new Game();
-        startController = new StartController(this.game);
-        playController = new PlayController(this.game);
-        resumeController = new ResumeController(this.game);
+        startController = new StartController(this.game, this.viewFactory);
+        playController = new PlayController(this.game, this.viewFactory);
+        resumeController = new ResumeController(this.game, this.viewFactory);
         this.view = this.createView();
         this.viewFactory = this.createViewFactory();
     }
