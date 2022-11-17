@@ -1,5 +1,6 @@
 package org.example.modelViewPresenter.refactorToPassiveView;
 
+import org.example.modelViewPresenter.refactorToPassiveView.view.ViewFactory;
 import org.example.modelViewPresenter.refactorToPassiveView.view.console.ConsoleView;
 
 public class ConsoleConnect4Game extends Connect4Game {
@@ -7,6 +8,11 @@ public class ConsoleConnect4Game extends Connect4Game {
     @Override
     public ConsoleView createView() {
         return new ConsoleView(this.startController, this.playController, this.resumeController);
+    }
+
+    @Override
+    public ViewFactory createViewFactory() {
+        return null;
     }
 
     public static void main(String[] args) {
