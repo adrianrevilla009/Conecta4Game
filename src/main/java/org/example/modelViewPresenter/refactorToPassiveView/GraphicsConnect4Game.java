@@ -5,9 +5,6 @@ import org.example.modelViewPresenter.refactorToPassiveView.view.graphics.Graphi
 import org.example.modelViewPresenter.refactorToPassiveView.view.graphics.GraphicsViewFactory;
 
 public class GraphicsConnect4Game extends Connect4Game {
-    public GraphicsView createView() {
-        return new GraphicsView(this.startController, this.playController, this.resumeController);
-    }
 
     @Override
     public ViewFactory createViewFactory() {

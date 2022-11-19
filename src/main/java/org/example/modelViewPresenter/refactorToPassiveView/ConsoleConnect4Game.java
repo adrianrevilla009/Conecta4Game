@@ -7,11 +7,6 @@ import org.example.modelViewPresenter.refactorToPassiveView.view.console.Console
 public class ConsoleConnect4Game extends Connect4Game {
 
     @Override
-    public ConsoleView createView() {
-        return new ConsoleView(this.startController, this.playController, this.resumeController);
-    }
-
-    @Override
     public ViewFactory createViewFactory() {
         return new ConsoleViewFactory();
     }
