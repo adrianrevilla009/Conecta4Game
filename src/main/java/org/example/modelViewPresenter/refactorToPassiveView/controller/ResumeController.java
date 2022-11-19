@@ -11,4 +11,12 @@ public class ResumeController extends Controller {
     public void reset() {
         this.game.reset();
     }
+
+    public boolean control() {
+        boolean isResumed = this.viewFactory.createResumeView().read();
+        if (isResumed) {
+            this.game.reset();
+        }
+        return isResumed;
+    }
 }

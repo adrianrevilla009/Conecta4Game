@@ -8,4 +8,9 @@ public class StartController extends Controller {
         super(game, viewFactory);
     }
 
+    public void control() {
+        this.viewFactory.createStartView().write();
+        this.writeBoard();
+    }
+
 }
