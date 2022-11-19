@@ -11,11 +11,6 @@ public class StartView {
         this.startController = startController;
     }
 
-    public void interact() {
-        new MessageView().writeln(Message.TITLE);
-        new BoardView().write(this.startController);
-    }
-
     public void write() {
         new MessageView().writeln(Message.TITLE);
     }
