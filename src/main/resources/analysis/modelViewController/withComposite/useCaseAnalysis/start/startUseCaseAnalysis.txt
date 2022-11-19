@@ -1,0 +1,15 @@
+@startuml
+
+class Player << actor >>
+
+Player --> ConsoleView
+ConsoleView -down-> StartView : interact(startController)
+StartView -down-> MessageView : writeln()
+StartView -down-> BoardView : write(startController)
+MessageView .down.> Console : writeln()
+BoardView -left-> MessageView : writeln()
+BoardView -down-> ColorView : write()
+BoardView .down.> Console : writeln()
+
+
+@enduml

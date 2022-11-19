@@ -1,0 +1,23 @@
+@startuml
+
+class ErrorView
+class View
+class BoardView
+class CellView
+class ColorView
+class ConsoleView
+class Menu
+class MessageView
+class PlayerView
+class PlayView
+class ResumeView
+class StartView
+class PlayMenu
+
+ConsoleView o--> StartView
+ConsoleView o--> PlayView
+ConsoleView o--> ResumeView
+Menu <|-- PlayMenu
+View <|-- ConsoleView
+
+@enduml

@@ -1,0 +1,11 @@
+@startuml
+
+node Server {
+package Views
+package Models
+package Controllers
+package Utils
+package Types
+}
+
+@enduml

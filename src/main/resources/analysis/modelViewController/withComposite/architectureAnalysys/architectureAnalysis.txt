@@ -1,0 +1,22 @@
+@startuml
+
+package Views {
+}
+package Models {
+}
+package Controllers {
+}
+package Utils {
+}
+package Types {
+}
+Views ..> Controllers
+Views ..> Models
+Controllers ..> Models
+Views ..> Types
+Controllers ..> Types
+Models ..> Types
+Views ..> Utils
+Models ..> Utils
+
+@enduml

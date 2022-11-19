@@ -1,0 +1,10 @@
+@startuml
+
+node Server {
+package Views {
+package Console {}
+package Graphic {}
+}
+}
+
+@enduml
