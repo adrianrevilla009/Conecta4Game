@@ -17,17 +17,17 @@ public class ConsoleViewFactory extends ViewFactory {
 
     @Override
     public PlayerView createPlayerView() {
-        return new PlayerView(Connect4Game.playController);
+        return new PlayerView();
     }
 
     @Override
     public ResumeView createResumeView() {
-        return new ResumeView(Connect4Game.resumeController);
+        return new ResumeView();
     }
 
     @Override
     public StartView createStartView() {
-        return new StartView(Connect4Game.startController);
+        return new StartView();
     }
 
 }

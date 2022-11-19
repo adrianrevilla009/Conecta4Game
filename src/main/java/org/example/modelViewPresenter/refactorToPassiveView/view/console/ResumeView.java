@@ -6,12 +6,6 @@ import org.example.modelViewPresenter.refactorToPassiveView.utils.YesNoDialog;
 
 public class ResumeView {
 
-    private ResumeController resumeController;
-
-    public ResumeView(ResumeController resumeController) {
-        this.resumeController = resumeController;
-    }
-
     public boolean read() {
         YesNoDialog isResumed = new YesNoDialog();
         isResumed.read(Message.RESUME.toString());
