@@ -15,4 +15,8 @@ public class StartView {
         new MessageView().writeln(Message.TITLE);
         new BoardView().write(this.startController);
     }
+
+    public void write() {
+        new MessageView().writeln(Message.TITLE);
+    }
 }

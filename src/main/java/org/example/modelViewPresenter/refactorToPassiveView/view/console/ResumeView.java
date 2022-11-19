@@ -20,4 +20,10 @@ public class ResumeView {
         }
         return isResumed.isAffirmative();
     }
+
+    public boolean read() {
+        YesNoDialog isResumed = new YesNoDialog();
+        isResumed.read(Message.RESUME.toString());
+        return isResumed.isAffirmative();
+    }
 }

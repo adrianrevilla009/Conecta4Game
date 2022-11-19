@@ -28,4 +28,16 @@ public class ConsoleView extends View {
     public boolean resume() {
         return this.resumeView.interact();
     }
+
+    public StartView getStartView() {
+        return startView;
+    }
+
+    public PlayView getPlayView() {
+        return playView;
+    }
+
+    public ResumeView getResumeView() {
+        return resumeView;
+    }
 }
