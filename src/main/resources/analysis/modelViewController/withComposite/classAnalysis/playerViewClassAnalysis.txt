@@ -1,0 +1,36 @@
+@startuml
+
+class PlayView {
+interact()
+putToken()
+getCell(Message)
+getPutTokenError(Cell)
+}
+class PlayController {
+undo()
+undoable()
+redo()
+redoable()
+isConnect4()
+next()
+isGameFinished()
+getOccupiedCells()
+putToken(Cell)
+getPutTokenError(Cell)
+getNextFreeRowByColumn(int)
+getActiveColor()
+accept(AcceptorController)
+}
+PlayView o-down-> PlayController
+PlayView ..> ErrorView
+PlayView ..> CellView
+PlayView ..> Cell
+PlayView ..> Message
+PlayView ..> Error
+
+PlayController o-down-> PlayActionController
+PlayController o-down-> UndoActionController
+PlayController o-down-> RedoActionController
+PlayController ..> Session
+
+@enduml
