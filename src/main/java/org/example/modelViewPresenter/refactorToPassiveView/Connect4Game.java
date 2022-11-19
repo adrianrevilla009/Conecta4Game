@@ -18,19 +18,19 @@ public abstract class Connect4Game {
 
     public Connect4Game() {
         this.game = new Game();
+        this.view = this.createView();
+        this.viewFactory = this.createViewFactory();
         startController = new StartController(this.game, this.viewFactory);
         playController = new PlayController(this.game, this.viewFactory);
         resumeController = new ResumeController(this.game, this.viewFactory);
-        this.view = this.createView();
-        this.viewFactory = this.createViewFactory();
     }
 
     public abstract View createView();
     public abstract ViewFactory createViewFactory();
     public void play() {
         do {
-            this.view.start();
-            this.view.play();
-        } while (this.view.resume());
+            startController.control();
+            playController.control();
+        } while (resumeController.control());
     }
 }
