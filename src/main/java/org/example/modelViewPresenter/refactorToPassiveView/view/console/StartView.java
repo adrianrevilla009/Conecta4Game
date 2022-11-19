@@ -1,6 +1,5 @@
 package org.example.modelViewPresenter.refactorToPassiveView.view.console;
 
-import org.example.modelViewPresenter.refactorToPassiveView.controller.StartController;
 import org.example.modelViewPresenter.refactorToPassiveView.types.Message;
 
 public class StartView {

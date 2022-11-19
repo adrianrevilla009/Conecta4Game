@@ -8,10 +8,6 @@ public class ResumeController extends Controller {
         super(game, viewFactory);
     }
 
-    public void reset() {
-        this.game.reset();
-    }
-
     public boolean control() {
         boolean isResumed = this.viewFactory.createResumeView().read();
         if (isResumed) {

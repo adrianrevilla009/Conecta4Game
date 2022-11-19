@@ -1,6 +1,5 @@
 package org.example.modelViewPresenter.refactorToPassiveView.view.console;
 
-import org.example.modelViewPresenter.refactorToPassiveView.controller.ResumeController;
 import org.example.modelViewPresenter.refactorToPassiveView.types.Message;
 import org.example.modelViewPresenter.refactorToPassiveView.utils.YesNoDialog;
 
