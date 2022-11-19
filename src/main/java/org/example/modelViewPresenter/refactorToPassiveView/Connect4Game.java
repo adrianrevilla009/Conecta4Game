@@ -4,7 +4,6 @@ import org.example.modelViewPresenter.refactorToPassiveView.controller.PlayContr
 import org.example.modelViewPresenter.refactorToPassiveView.controller.ResumeController;
 import org.example.modelViewPresenter.refactorToPassiveView.controller.StartController;
 import org.example.modelViewPresenter.refactorToPassiveView.domain.Game;
-import org.example.modelViewPresenter.refactorToPassiveView.view.View;
 import org.example.modelViewPresenter.refactorToPassiveView.view.ViewFactory;
 
 public abstract class Connect4Game {
