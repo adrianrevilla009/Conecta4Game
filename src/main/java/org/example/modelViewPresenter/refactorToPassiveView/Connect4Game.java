@@ -10,22 +10,22 @@ public abstract class Connect4Game {
     private Game game;
     private ViewFactory viewFactory;
 
-    public static StartController startController;
-    public static PlayController playController;
-    public static ResumeController resumeController;
+    public StartController startController;
+    public PlayController playController;
+    public ResumeController resumeController;
 
     public Connect4Game() {
         this.game = new Game();
         this.viewFactory = this.createViewFactory();
-        startController = new StartController(this.game, this.viewFactory);
-        playController = new PlayController(this.game, this.viewFactory);
-        resumeController = new ResumeController(this.game, this.viewFactory);
+        this.startController = new StartController(this.game, this.viewFactory);
+        this.playController = new PlayController(this.game, this.viewFactory);
+        this.resumeController = new ResumeController(this.game, this.viewFactory);
     }
     public abstract ViewFactory createViewFactory();
     public void play() {
         do {
-            startController.control();
-            playController.control();
-        } while (resumeController.control());
+            this.startController.control();
+            this.playController.control();
+        } while (this.resumeController.control());
     }
 }
