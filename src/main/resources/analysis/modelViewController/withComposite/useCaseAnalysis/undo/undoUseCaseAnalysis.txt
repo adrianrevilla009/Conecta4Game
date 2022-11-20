@@ -1,0 +1,17 @@
+@startuml
+
+class Player << actor >>
+
+Player --> ConsoleView
+ConsoleView -down-> PlayView : interact(playController)
+PlayView .down.> PlayMenu : execute()
+PlayMenu .down.> Console : writeln()
+PlayMenu -down-> UndoActionCommand : execute()
+UndoActionCommand o-down-> PlayController : undo()
+UndoActionCommand -down-> CommandAction : execute()
+PlayController *-down-> UndoActionController : undo()
+UndoActionController o-down-> Session : undo()
+Session o-down-> Registry : undo()
+Registry o-down-> Game : setMemento(memento)
+
+@enduml

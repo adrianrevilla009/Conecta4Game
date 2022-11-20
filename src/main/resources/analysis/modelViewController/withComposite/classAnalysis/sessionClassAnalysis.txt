@@ -1,0 +1,30 @@
+@startuml
+
+class Session {
+reset()
+nextState()
+getValueState()
+undoable()
+redoable()
+undo()
+redo()
+next()
+getColor(cell)
+isGameFinished()
+isConnect4()
+isEqualGame()
+getActiveColor()
+getPutTokenError(cell)
+putToken(cell)
+getNextFreeRowByColumn(int)
+getOccupiedCells()
+}
+class State {}
+class Game {}
+class Registry {}
+
+Session *-down-> State
+Session *-down-> Game
+Session *-down-> Registry
+
+@enduml
