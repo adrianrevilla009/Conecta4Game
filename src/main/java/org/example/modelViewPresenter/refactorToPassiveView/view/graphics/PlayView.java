@@ -23,11 +23,11 @@ class PlayView extends JFrame {
         this.setSize(400, 500);
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.gameView = new GameView(this.playController.getGame());
+        // this.gameView = new GameView(this.playController.getGame());
         this.getContentPane().add(this.gameView);
         this.gameView.write();
         this.setVisible(true);
-        this.cellPutView = new CellPutView(this.playController.getGame());
+        // this.cellPutView = new CellPutView(this.playController.getGame());
         this.getContentPane().add(this.cellPutView, new Constraints(0, 1, 3, 1));
         this.gameView.removeAll();
         this.setVisible(true);
