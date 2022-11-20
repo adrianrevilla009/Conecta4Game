@@ -23,9 +23,9 @@ public class StartView extends JFrame {
 
     void interact() {
         GameView gameView;
-        gameView = new GameView(this.startController.getGame());
-        gameView.write();
-        this.getContentPane().add(gameView, new Constraints(0, 0, 3, 1));
+        // gameView = new GameView(this.startController.getGame());
+        // gameView.write();
+        // this.getContentPane().add(gameView, new Constraints(0, 0, 3, 1));
         this.setVisible(false);
     }
 
