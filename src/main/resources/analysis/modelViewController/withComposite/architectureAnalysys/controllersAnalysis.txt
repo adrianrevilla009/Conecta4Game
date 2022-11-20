@@ -1,0 +1,33 @@
+@startuml
+
+class StartController
+class ResumeController
+class PlayController
+class Logic
+class ControllersVisitor
+class Controller
+class AcceptorController
+class PlayActionController
+class RedoActionController
+class UndoActionController
+
+Controller <|-- StartController
+Controller <|-- ResumeController
+Controller <|-- PlayController
+Controller <|-- PlayActionController
+Controller <|-- RedoActionController
+Controller <|-- UndoActionController
+
+StartController ..> ControllersVisitor
+ResumeController ..> ControllersVisitor
+PlayController ..> ControllersVisitor
+
+StartController ..> AcceptorController
+ResumeController ..> AcceptorController
+PlayController ..> AcceptorController
+
+PlayController *--> PlayActionController
+PlayController *--> RedoActionController
+PlayController *--> UndoActionController
+
+@enduml
