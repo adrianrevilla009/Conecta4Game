@@ -93,4 +93,11 @@ public class IntervalTest {
     assertTrue(interval.includeInterval(includedInterval));
   }
 
+  @Test
+  public void givenIntervalOpenOpenWhenIncludedWithinOtherIntervalInEdgeThenFalse() {
+    Interval interval = this.intervalBuilder.open(left.getEquals()).open(right.getEquals()).build();
+    Interval includedInterval = new IntervalBuilder().open(left.getEquals()).open(right.getEquals()).build();
+    assertFalse(interval.includeInterval(includedInterval));
+  }
+
 }
