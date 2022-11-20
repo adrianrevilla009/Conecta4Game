@@ -75,16 +75,14 @@ public class IntervalTest {
   @Test
   public void givenIntervalOpenOpenWhenIncludedWithinOtherIntervalThenFalse() {
     Interval interval = this.intervalBuilder.open(left.getEquals()).open(right.getEquals()).build();
-    this.intervalBuilder = new IntervalBuilder();
-    Interval includedInterval = this.intervalBuilder.open(left.getLess()).open(right.getGreater()).build();
+    Interval includedInterval = new IntervalBuilder().open(left.getLess()).open(right.getGreater()).build();
     assertFalse(interval.includeInterval(includedInterval));
   }
 
   @Test
   public void givenIntervalOpenOpenWhenIncludedWithinOtherIntervalThenTrue() {
     Interval interval = this.intervalBuilder.open(left.getEquals()).open(right.getEquals()).build();
-    this.intervalBuilder = new IntervalBuilder();
-    Interval includedInterval = this.intervalBuilder.open(left.getGreater()).open(right.getLess()).build();
+    Interval includedInterval = new IntervalBuilder().open(left.getGreater()).open(right.getLess()).build();
     assertTrue(interval.includeInterval(includedInterval));
   }
 
