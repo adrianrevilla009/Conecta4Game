@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.example.testDrivenDevelopment.intervals.*;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 public class IntervalTest {
@@ -21,6 +22,7 @@ public class IntervalTest {
   }
 
   @Test
+  @Disabled
   public void givenIntervaOpenOpenlwhenIncludeWithIncludedValueThenTrue() {
     Interval interval = this.intervalBuilder.open(left.getEquals()).open(right.getEquals()).build();
     assertFalse(interval.include(left.getLess()));
@@ -32,6 +34,7 @@ public class IntervalTest {
   }
 
   @Test
+  @Disabled
   public void givenIntervaOpenOpenlwhenInc3ludeWithIncludedValueThenTrue() {
     Interval interval = this.intervalBuilder.closed(left.getEquals()).open(right.getEquals()).build();
     assertFalse(interval.include(left.getLess()));
@@ -44,6 +47,7 @@ public class IntervalTest {
   }
 
   @Test
+  @Disabled
   public void givenIntervaOpenOpenlwhenIncludeWit3hIncludedValueThenTrue() {
     Interval interval = this.intervalBuilder.open(left.getEquals()).closed(right.getEquals()).build();
     assertFalse(interval.include(left.getLess()));
@@ -56,6 +60,7 @@ public class IntervalTest {
   }
 
   @Test
+  @Disabled
   public void givenIntervaOpenOpenlwhenIncludeWithInclude5dValueThenTrue() {
     Interval interval = this.intervalBuilder.closed(left.getEquals()).closed(right.getEquals()).build();
     assertFalse(interval.include(left.getLess()));
@@ -69,6 +74,14 @@ public class IntervalTest {
 
   @Test
   public void givenIntervalOpenOpenWhenIncludedWithinOtherIntervalThenFalse() {
+    Interval interval = this.intervalBuilder.open(left.getEquals()).open(right.getEquals()).build();
+    this.intervalBuilder = new IntervalBuilder();
+    Interval includedInterval = this.intervalBuilder.open(left.getEquals()).open(right.getEquals()).build();
+    assertFalse(interval.includeInterval(includedInterval));
+  }
+
+  @Test
+  public void givenIntervalOpenOpenWhenIncludedWithinOtherIntervalThenTrue() {
     Interval interval = this.intervalBuilder.open(left.getEquals()).open(right.getEquals()).build();
     this.intervalBuilder = new IntervalBuilder();
     Interval includedInterval = this.intervalBuilder.open(left.getEquals()).open(right.getEquals()).build();
